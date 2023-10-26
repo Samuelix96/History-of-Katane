@@ -1,0 +1,180 @@
+#! ARMORS
+####
+POST http://localhost:5050/armors/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05874-scaled.jpg",
+    "descrizione": "Con gli ampi sode (spallacci) e la costruzione all'antica, questa armatura richiama lo stile delle armature medievali popolari nel periodo Edo. La moda delle armature in stile antico si affermò quando l'ottavo shogun Tokugawa Ieyoshi (1684-1750) promosse un revival degli armamenti tradizionali, tra cui spade e armature, per rivitalizzare quello che riteneva un declino dello spirito marziale della nazione La corazza è realizzata con centinaia di piccole piastre unite tra loro. Questo sistema, noto come hon-kozane, è un metodo complesso e costoso, ma efficace per allacciare insieme numerose piastre di piccole dimensioni; fu utilizzato fino al XVI secolo e poi recuperato durante il periodo Edo per le armature in stile destinate ai samurai di alto rango.",
+    "prezzo": 10000,
+    "title": "Hon-kozane ni-mai do tosei gusoku",
+    "elmo": "Kabuto in ferro (tetsu sabiji) a sessantadue piastre, ciascuna montata con venticinque piccoli rivetti rastremati (ko-boshi) di dimensione decrescente; la piastra anteriore, più grande delle altre, è dotata di due linee di rivetti, mentre quella posteriore è lasciata vuota, per un totale di 1.550 rivetti.",
+    "maschera": "Maschera di tipo ressei-men (maschera dall'espressione feroce) in ferro (tetsu sabiji).",
+    "corazza": "Ni-mai do ( realizzata in due parti) con costruzione hon-kozane (piastrine individuali). Placche di pelle impressa con bordi in shakudo incisi, raffinati kanamono con hanabishi sono ripetuti su altre parti dell'armatura.",
+    "maniche": "In ferro, con un hanabishi sul dorso della mano (tekko)",
+    "parastinchi": "Rivestiti in lacca urushi nera."
+}
+
+####
+GET http://localhost:5050/armors HTTP/1.1
+
+####
+GET http://localhost:5050/armors/bytitle?title=hon
+
+####
+
+
+
+
+
+#! HELMETS
+####
+POST http://localhost:5050/helmets/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "e",
+    "prezzo": 30000,
+    "descrizione": "e",
+    "img": "e",
+    "altezza" : 2,
+    "peso": 29,
+    "verticale": 44,
+    "subtitle": "3"
+}
+
+####
+GET http://localhost:5050/helmets HTTP/1.1
+
+####
+GET http://localhost:5050/helmets/bytitle?title=hon
+
+####
+
+
+
+
+
+#! NEW KATANE
+####
+POST http://localhost:5050/newKatane/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "categoria": "dd",
+    "cover": "dd",
+    "larghezza": 3,
+    "spessore": 44,
+    "maniglia": "rr",
+    "guardia": 4,
+    "lunghezza": 4,
+    "prezzo": 400000,
+    "descrizione": "r",
+    "title": "e"
+}
+
+####
+GET http://localhost:5050/newKatane HTTP/1.1
+
+####
+GET http://localhost:5050/newKatane/bytitle?title=hon
+
+####
+
+
+
+
+
+#! OLD KATANE
+####
+POST http://localhost:5050/oldKatane/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "fabbro": "dd",
+    "prezzo": 33,
+    "curvatura": 33,
+    "spessore": 44,
+    "img": "rr",
+    "era": "ee",
+    "lunghezza": 4,
+    "location": "janaa",
+    "descrizione": "r",
+    "title": "e"
+}
+
+####
+GET http://localhost:5050/oldKatane HTTP/1.1
+
+####
+GET http://localhost:5050/oldKatane/bytitle?title=hon
+
+####
+
+
+
+
+
+
+#! STANDS 
+####
+POST http://localhost:5050/stands/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "e",
+    "prezzo": 33333,
+    "descrizione": "r",
+    "cover": "d",
+    "materiale": "e",
+    "forma": "e"
+}
+
+####
+GET http://localhost:5050/stands HTTP/1.1
+
+####
+GET http://localhost:5050/stands/bytitle?title=hon
+
+####
+
+
+
+
+
+#! USERS 
+####
+POST http://localhost:5050/users/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "www",
+    "lastName": "rrr",
+    "nickName": "rrrn",
+    "email": "martarossi@gmail.com",
+    "password": "martarossi",
+    "birth": "7 aprile",
+    "avatar": "ee"
+}
+
+####
+GET http://localhost:5050/users HTTP/1.1
+
+####
+GET http://localhost:5050/users/bynickName?nickName=e
+
+####
+
+
+#! LOGIN 
+####
+
+POST http://localhost:5050/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "martarossi@gmail.com",
+    "password": "martarossi"
+}
+
+####
