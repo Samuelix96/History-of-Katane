@@ -3,11 +3,12 @@ const express = require("express");
 const PORT = 5050;
 const armorsRoute = require("./Routes/armors")
 const helmetsRoute = require("./Routes/helmets")
-const newKataneRoute = require("./Routes/newKatane")
-const oldKataneRoute = require("./Routes/oldKatane")
+
 const usersRoute = require("./Routes/users")
 const standsRoute = require("./Routes/stands")
+const katanasRoute = require("./Routes/katanas")
 const loginRoute = require("./Routes/login")
+const postsRoute = require("./Routes/posts")
 require("dotenv").config();
 const cors = require("cors");
 
@@ -19,11 +20,11 @@ app.use(cors())
 
 app.use('/', armorsRoute)
 app.use('/', helmetsRoute)
-app.use('/', newKataneRoute)
-app.use('/', oldKataneRoute)
 app.use('/', usersRoute)
 app.use('/', standsRoute)
 app.use('/', loginRoute)
+app.use('/', postsRoute)
+app.use('/', katanasRoute)
 
 
 

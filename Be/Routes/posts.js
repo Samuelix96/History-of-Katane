@@ -1,41 +1,41 @@
 const express = require("express");
-const old = express.Router();
-const oldKataneModel = require("../Models/oldKatane")
+const posts = express.Router();
+const PostsModel = require("../Models/posts");
 
-old.get('/oldKatane', async (req, res) =>
-{
-    try
-    {
-        const olds = await oldKataneModel.find()
+posts.get('/posts', async(req,res) => {
+    try {
+        const post = await PostsModel.find()
 
         res.status(200).send({
-            statusCode: 200,
-            olds
+            statusCode: 200, 
+            message: "Post effettuato con successo",
+            post
         })
-    } catch (error)
-    {
+    } catch (error) {
         res.status(500).send({
-            message: "Errore nel server interno",
-            error: error.message,
-            statusCode: 500
+            statusCode:500,
+            message: "Errore interno al server",
+            error: message.error
         })
     }
 })
 
-old.get('/oldKatane/bytitle', async (req, res) =>
+
+
+posts.get('/posts/bytitle', async (req, res) =>
 {
     const { title } = req.query;
 
     try
     {
-        const olds = await oldKataneModel.find({
+        const post = await PostsModel.find({
             title: {
                 $regex: title,
                 $options: "i"
             },
         })
 
-        if (!olds)
+        if (!post)
         {
             res.status(404).send({
                 message: "Titolo non trovato ",
@@ -45,7 +45,7 @@ old.get('/oldKatane/bytitle', async (req, res) =>
 
         res.status(200).send({
             statusCode: 200,
-            olds
+            post
         })
     } catch (error)
     {
@@ -57,27 +57,23 @@ old.get('/oldKatane/bytitle', async (req, res) =>
     }
 })
 
-old.post('/oldKatane/create', async (req, res) =>
+posts.post('/posts/create', async (req, res) =>
 {
-    const newOld = new oldKataneModel({
-        img: req.body.img,
-        descrizione: req.body.descrizione,
-        prezzo: Number(req.body.prezzo),
+    const newPost = new PostsModel({
         title: req.body.title,
-        era: req.body.era,
-        lunghezza: req.body.lunghezza,
-        curvatura: req.body.curvatura,
-        location: req.body.location,
-        fabbro: req.body.fabbro
+        description: req.body.description,
+        img: req.body.img,
+        source: req.body.source,
+        subtitle: req.body.subtitle,
     })
 
     try
     {
-        const olds = await newOld.save()
+        const post = await newPost.save()
         res.status(201).send({
             message: "Post inviato con successo",
             statusCode: 201,
-            olds
+            post
         })
     } catch (error)
     {
@@ -90,12 +86,12 @@ old.post('/oldKatane/create', async (req, res) =>
 
 })
 
-old.patch('/oldKatane/update/:id', async (req, res) =>
+posts.patch('/posts/update/:id', async (req, res) =>
 {
     const { id } = req.params;
 
-    const oldsExist = await oldKataneModel.findById(id)
-    if (!oldsExist)
+    const postExist = await PostsModel.findById(id)
+    if (!postExist)
     {
 
         return res.status(404).send({
@@ -106,14 +102,14 @@ old.patch('/oldKatane/update/:id', async (req, res) =>
 
     try
     {
-        const updateOld = req.body;
+        const updatePost = req.body;
         const options = { new: true };
-        const olds = await oldKataneModel.findByIdAndUpdate(id, updateOld, options)
+        const post = await PostsModel.findByIdAndUpdate(id, updatePost, options)
 
         res.status(200).send({
             message: "Update effettuato con successo",
             statusCode: 200,
-            olds
+            post
         })
 
     } catch (error)
@@ -127,4 +123,4 @@ old.patch('/oldKatane/update/:id', async (req, res) =>
 })
 
 
-module.exports = old;
+module.exports = posts;

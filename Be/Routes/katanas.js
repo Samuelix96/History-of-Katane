@@ -1,12 +1,12 @@
 const express = require("express");
-const newKatane = express.Router();
-const NewKataneModel = require("../Models/newKatane")
+const katanas = express.Router();
+const katanasModel = require("../Models/katanas")
 
-newKatane.get('/newKatane', async (req, res) =>
+katanas.get('/katanas', async (req, res) =>
 {
     try
     {
-        const kata = await NewKataneModel.find()
+        const kata = await katanasModel.find()
 
         res.status(200).send({
             statusCode: 200,
@@ -22,13 +22,13 @@ newKatane.get('/newKatane', async (req, res) =>
     }
 })
 
-newKatane.get('/newKatane/bytitle', async (req, res) =>
+katanas.get('/katanas/bytitle', async (req, res) =>
 {
     const { title } = req.query;
 
     try
     {
-        const kata = await NewKataneModel.find({
+        const kata = await katanasModel.find({
             title: {
                 $regex: title,
                 $options: "i"
@@ -57,24 +57,24 @@ newKatane.get('/newKatane/bytitle', async (req, res) =>
     }
 })
 
-newKatane.post('/newKatane/create', async (req, res) =>
+katanas.post('/katanas/create', async (req, res) =>
 {
-    const freshKata = new NewKataneModel({
-        cover: req.body.cover,
-        descrizione: req.body.descrizione,
-        prezzo: Number(req.body.prezzo),
+    const newKata = new katanasModel({
         title: req.body.title,
-        lunghezza: Number(req.body.lunghezza),
-        larghezza: Number(req.body.larghezza),
-        guardia: req.body.guardia,
-        maniglia: req.body.maniglia,
-        spessore : Number(req.body.spessore),
-        categoria: req.body.categoria
+        description: req.body.description,
+        img: req.body.img,
+        category: req.body.category,
+        price: Number(req.body.price),
+        length: Number(req.body.length),
+        width: Number(req.body.width),
+        thickness: Number(req.body.thickness),
+        age: req.body.age,
+        location: req.body.location
     })
 
     try
     {
-        const kata = await freshKata.save()
+        const kata = await newKata.save()
         res.status(201).send({
             message: "Post inviato con successo",
             statusCode: 201,
@@ -91,11 +91,11 @@ newKatane.post('/newKatane/create', async (req, res) =>
 
 })
 
-newKatane.patch('/newKatane/update/:id', async (req, res) =>
+katanas.patch('/katanas/update/:id', async (req, res) =>
 {
     const { id } = req.params;
 
-    const kataExist = await NewKataneModel.findById(id)
+    const kataExist = await katanasModel.findById(id)
     if (!kataExist)
     {
 
@@ -109,7 +109,7 @@ newKatane.patch('/newKatane/update/:id', async (req, res) =>
     {
         const updateKata = req.body;
         const options = { new: true };
-        const kata = await NewKataneModel.findByIdAndUpdate(id, updateKata, options)
+        const kata = await katanasModel.findByIdAndUpdate(id, updateKata, options)
 
         res.status(200).send({
             message: "Update effettuato con successo",
@@ -128,4 +128,4 @@ newKatane.patch('/newKatane/update/:id', async (req, res) =>
 })
 
 
-module.exports = newKatane;
+module.exports = katanas;

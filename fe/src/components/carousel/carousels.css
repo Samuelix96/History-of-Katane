@@ -1,0 +1,6 @@
+.box-height .caro-img{
+    height: 500px;
+    object-fit:scale-down;
+    
+    aspect-ratio: 16/9;
+}
