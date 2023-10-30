@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import "./article.css"
 
 
 
 const Article = ({ img, description, source, subtitle, reverse }) =>
 {
-
     const articleClass = `parallax-article ${ reverse ? 'reverse' : '' }`;
 
     return (
-        <div className={articleClass}>
+        <div   className={articleClass}>
             <div className="article-image">
                 <img src={ img } alt="Immagine dell'articolo" />
             </div>

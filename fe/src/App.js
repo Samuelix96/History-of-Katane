@@ -1,22 +1,19 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from "./pages/Home"
-import AboutUs from "./pages/AboutUs"
-import Travel from "./pages/Travel"
-import Museum from "./pages/Museum"
-import Review from "./pages/Review"
+import { BrowserRouter as Router} from 'react-router-dom'
+import AnimatedRoutes from './components/animated/AnimatedRoutes'
+import MainLayout from './layout/MainLayout'
+import AOS from 'aos'
+
 const App = () => {
+
+  AOS.init();
   return (
     
-      <BrowserRouter>
-        <Routes>
-          <Route exact path='/' element={ <Home />} />
-          <Route  path='/aboutus' element={ <AboutUs />} />
-          <Route  path='/museum' element={ <Museum />} />
-          <Route  path='/travel' element={ <Travel />} />
-          <Route  path='/review' element={ <Review />} />
-        </Routes>
-      </BrowserRouter>
+      <Router>
+        <MainLayout>
+      <AnimatedRoutes />
+        </MainLayout>
+      </Router>
     
   )
 }
