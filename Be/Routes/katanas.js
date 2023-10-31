@@ -22,15 +22,15 @@ katanas.get('/katanas', async (req, res) =>
     }
 })
 
-katanas.get('/katanas/bytitle', async (req, res) =>
+katanas.get('/katanas/bycategory', async (req, res) =>
 {
-    const { title } = req.query;
+    const { category } = req.query;
 
     try
     {
         const kata = await katanasModel.find({
-            title: {
-                $regex: title,
+            category: {
+                $regex: category,
                 $options: "i"
             },
         })
@@ -124,6 +124,28 @@ katanas.patch('/katanas/update/:id', async (req, res) =>
             error: error.message,
             statusCode: 500
         })
+    }
+})
+
+katanas.delete('/katanas/delete/:id', async(req,res) => {
+    const { id} = req.params;
+
+    try{
+        const katanas = await katanasModel.findByIdAndDelete(id)
+        if (!katanas) {
+            return res.status(404).send({
+                statusCode: 404,
+                message: "Errore interno al server"
+            })
+        }
+
+        res.status(200).send({
+            statusCode:200,
+            message: "Delete effettuato con successo",
+            katanas
+        })
+    } catch (error) {
+
     }
 })
 

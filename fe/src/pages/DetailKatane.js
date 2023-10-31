@@ -1,10 +1,15 @@
 import React from 'react'
+import MainLayout from '../layout/MainLayout'
 
-const DetailKatane = () => {
+const DetailKatane = () =>
+{
   return (
-    <div>
-      cioa
-    </div>
+    <MainLayout>
+      <div>
+        cioa
+      </div>
+    </MainLayout>
+
   )
 }
 

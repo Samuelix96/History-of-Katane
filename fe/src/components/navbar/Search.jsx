@@ -14,6 +14,7 @@ const Search = () =>
             />
             <Button variant="outline-success">Search</Button>
         </Form>
+        
     )
 }
 

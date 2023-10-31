@@ -25,3 +25,8 @@
   .reverse {
     flex-direction: row-reverse;
   }
+
+  .article-description :where(h1, h3 ) {
+    color: rgb(182, 148, 99);
+    font-family:'Courier New', Courier, monospace
+  }

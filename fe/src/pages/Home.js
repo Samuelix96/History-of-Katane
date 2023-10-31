@@ -4,6 +4,7 @@ import Carousels from "../components/carousel/Carousel"
 import { motion } from "framer-motion";
 import Header from '../components/header/Header';
 import Jumbotron from '../components/jumbotron/Jumbotron';
+import MainLayout from '../layout/MainLayout';
 
 
 
@@ -14,20 +15,32 @@ const Home = () =>
 
 
   return (
-    <motion.div
-      initial={ { width: 0 } }
-      animate={ { width: "100%" } }
-      exit={ { width: window.innerWidth, translate: { duration: 0.5 } } }
+    <>
+      <MainLayout>
+          <motion.div
+        initial={ { width: 0 } }
+        animate={ { width: "100%" } }
+        exit={ { width: 0 } }
 
-    >
-      <div>
-        <Jumbotron />
-        <Carousels />
-        <Header />
-        <Main />
-      </div>
+      >
+          <Jumbotron />
+          <Carousels />
+          <Header />
+          <Main />
+          </motion.div> 
+        </MainLayout>
+    </>
 
-    </motion.div>
+
+
+
+
+
+
+
+
+
+
   )
 }
 

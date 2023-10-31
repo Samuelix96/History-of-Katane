@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+
+
+
+.login_container {
+    height: 100vh;
+    overflow: hidden;
+
+    background-image: url("https://img.freepik.com/free-vector/hand-painted-japanese-themed-landscape-design_1048-19214.jpg?w=1380&t=st=1698781165~exp=1698781765~hmac=bc36d3f916c33742ca75c87683ce7c84e242d9a907179836199dc954f35be1fd");
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: 'Vibur', cursive;
+    font-family: 'Abel', sans-serif;
+    opacity: .95;
+
+}
+
+
+.form_login {
+    width: 450px;
+    min-height: 500px;
+    height: auto;
+    border-radius: 5px;
+    margin: 2% auto;
+    box-shadow: 0 9px 50px hsla(15, 2%, 66%, 0.31);
+    padding: 2%;
+    background-image: linear-gradient(-225deg, #d5e7f0 50%, #5c6f8c 50%);
+}
+
+/* form Container */
+.form_login .con {
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    margin: 0 auto;
+}
+
+
+.header_login {
+    margin: 2% auto 10% auto;
+    text-align: center;
+}
+
+/* Login title form form */
+.header_login h2 {
+    font-size: 250%;
+    font-family: 'Playfair Display', serif;
+    color: #3e403f;
+}
+
+/*  A welcome message or an explanation of the login form */
+.header_login p {
+    letter-spacing: 0.05em;
+}
+
+
+.input-item {
+
+    color: #333;
+    padding: 14.5px 0px 15px 9px;
+    border-radius: 6px 0px 0px 6px;
+}
+
+
+
+input[class="form-input"] {
+    width: 240px;
+    height: 50px;
+
+    margin-top: 2%;
+    padding: 15px;
+
+    font-size: 16px;
+    font-family: 'Abel', sans-serif;
+    color: #5E6472;
+
+    outline: none;
+    border: none;
+
+    border-radius: 0px 5px 5px 0px;
+    transition: 0.2s linear;
+
+}
+
+input[id="txt-input"] {
+    width: 250px;
+}
+
+input:focus {
+    transform: translateX(-2px);
+    border-radius: 5px;
+}
+
+
+.button_login {
+    display: inline-block;
+    color: #252537;
+
+    width: 280px;
+    height: 50px;
+
+    padding: 0 20px;
+    background: #fff;
+    border-radius: 5px;
+
+    outline: none;
+    border: none;
+
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s linear;
+
+    margin: 7% auto;
+    letter-spacing: 0.05em;
+}
+
+.submits {
+    width: 48%;
+    display: inline-block;
+    float: left;
+    margin-left: 2%;
+}
+
+
+.frgt-pass {
+    background: transparent;
+}
+
+
+.sign-up {
+    background: #B8F2E6;
+}
+
+
+
+.button_login:hover {
+    transform: translatey(3px);
+    box-shadow: none;
+}
+
+/* buttons hover Animation */
+.button_login:hover {
+    animation: ani9 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes ani9 {
+    0% {
+        transform: translateY(3px);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}

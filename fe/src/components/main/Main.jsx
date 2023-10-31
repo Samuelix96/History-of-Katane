@@ -28,9 +28,12 @@ const Main = () =>
             reverse = !reverse;
             return (
               <Article
+                title= {element.title}
+                subtitle = {element.subtitle}
                 img={ element.img }
                 description={ element.description }
                 reverse={ reverse }
+                source= {element.source}
               />
             );
           })

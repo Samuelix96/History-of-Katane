@@ -1,7 +1,8 @@
 .hero__text 
  img {
-    height: 250px;
+    height: 280px;
     border-radius: 100%;
+    padding-block: 3px;
 }
 .sector-hero {
     background-size: cover;

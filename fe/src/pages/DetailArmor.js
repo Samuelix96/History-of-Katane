@@ -1,10 +1,14 @@
 import React from 'react'
+import MainLayout from '../layout/MainLayout'
 
 const DetailArmor = () => {
   return (
-    <div>
+    <MainLayout>
+        <div>
       egi
     </div>
+    </MainLayout>
+    
   )
 }
 

@@ -55,29 +55,33 @@ GET http://localhost:5050/helmets/bytitle?title=hon
 
 
 
-#! KATANASs
+#! KATANAS
 ####
 POST http://localhost:5050/katanas/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "category": "dd",
-    "img": "dd",
+    "category": "ancient",
+    "img": "https://japanesesword.net/cdn/shop/files/DSC_1099_928x928.jpg?v=1695973198",
     "width": 3,
     "thickness": 44,
-    "age": "",
+    "age": "2022",
     "location": "Oden",
-    "price": 400000,
-    "length": 44,
-    "description": "r",
-    "title": "prova"
+    "price": 3300,
+    "length": 4,
+    "description": "The koshirae is equipped with a handachi fuchi-kashira and has a beefy square tsuba. It also has a large habaki to match the wider blade. The weight of the sword makes it ideal for test cutting. The price was set reasonable considering the condition of the blade, so it is recommended as an introductory katana for those who want to learn about Japanese swordsmanship.",
+    "title": "Uchigatana Koshirae"
 }
 
 ####
 GET http://localhost:5050/katanas HTTP/1.1
 
 ####
-GET http://localhost:5050/katanas/bytitle?title=prov
+GET http://localhost:5050/katanas/bycategory?category=new
+
+####
+
+DELETE http://localhost:5050/katanas/delete/654143353c98c3815ebe3b44
 
 ####
 
