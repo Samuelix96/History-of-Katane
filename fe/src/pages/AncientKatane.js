@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import SingleAncientKatana from '../components/katane/SingleAncientKatana';
 import { useGetKataneQuery } from '../api/apiSlice';
 import { Col, Container, Row } from 'react-bootstrap';
+import { nanoid } from 'nanoid';
 const AncientKatane = () =>
 {
 
@@ -30,11 +31,12 @@ const AncientKatane = () =>
               <Col className='d-flex gap-3 justify-content-between flex-wrap'>
               { isPostSuccess && !isPostLoading ? (
         ancientKata ? (
-          ancientKata?.kata?.map((item) =>
+          ancientKata?.katas?.map((item) =>
           {
             
             return (
               <SingleAncientKatana
+              key= {item._id}
                 title= {item.title}
                 price= { item.price}
                 category = { item.category}

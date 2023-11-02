@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./article.css"
 
 const Article = ({ img, description, title, source, subtitle, reverse }) =>
@@ -8,7 +8,7 @@ const Article = ({ img, description, title, source, subtitle, reverse }) =>
     const articleClass = `parallax-article ${ reverse ? 'reverse' : '' }`;
 
     return (
-        <div className='containet-fluid my-4 text-start'>
+        <div className='container-fluid my-4 text-start'>
             
             <div className={ articleClass }>
 

@@ -5,11 +5,11 @@ const ArmorsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    descrizione: {
+    description: {
         type: String,
         required: true
     },
-    prezzo: {
+    price: {
         type: Number,
         required: true
     },
@@ -17,23 +17,20 @@ const ArmorsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    elmo: {
+    helmet: {
         type: String,
         required: true
     },
-    maschera: {
+    mask: {
         type: String,
         required: true
     },
-    corazza: {
+    armor: {
         type: String,
         required: true
     },
-    parastinchi: {
-        type: String,
-        required: true
-    },
-    maniche: {
+
+    sleeves: {
         type: String,
         required: true
     },

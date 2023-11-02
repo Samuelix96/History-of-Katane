@@ -21,21 +21,40 @@ katanas.get('/katanas', async (req, res) =>
         })
     }
 })
+katanas.get('/katanas/byid/:id', async(req, res) => {
+    const {id} = req.params;
+    try{
+        const kata = await katanasModel.findById(id)
+        if (!kata) {
+            return res.status(404).send({
+                message: `Katana not found with this id ${id}`,
+                statusCode:404
+            })
+        }
 
-katanas.get('/katanas/bycategory', async (req, res) =>
+        res.status(200).send({
+            statusCode:200,
+            kata
+        })
+    } catch (error) {
+
+    }
+})
+
+katanas.get('/katanas/category', async (req, res) =>
 {
     const { category } = req.query;
 
     try
     {
-        const kata = await katanasModel.find({
+        const katas = await katanasModel.find({
             category: {
                 $regex: category,
                 $options: "i"
             },
         })
 
-        if (!kata)
+        if (!katas)
         {
             res.status(404).send({
                 message: "Titolo non trovato ",
@@ -45,7 +64,7 @@ katanas.get('/katanas/bycategory', async (req, res) =>
 
         res.status(200).send({
             statusCode: 200,
-            kata
+            katas
         })
     } catch (error)
     {

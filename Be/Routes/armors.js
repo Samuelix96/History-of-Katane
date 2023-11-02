@@ -61,14 +61,13 @@ armors.post('/armors/create', async (req, res) =>
 {
     const newArmors = new ArmorsModel({
         img: req.body.img,
-        descrizione: req.body.descrizione,
-        prezzo: Number(req.body.prezzo),
+        description: req.body.description,
+        price: req.body.price,
         title: req.body.title,
-        elmo: req.body.elmo,
-        maschera: req.body.maschera,
-        corazza: req.body.corazza,
-        parastinchi: req.body.parastinchi,
-        maniche: req.body.maniche,
+        helmet: req.body.helmet,
+        mask: req.body.mask,
+        armor: req.body.armor,
+        sleeves:req.body.sleeves
     })
 
     try

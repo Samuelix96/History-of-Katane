@@ -4,54 +4,54 @@ const Login = () =>
 {
   return (
     <div className='login_container'>
-        <div class="overlay">
+        <div className="overlay">
       <form className='form_login'>
 
-        <div class="con">
+        <div className="con">
 
-          <header class="head-form header_login">
+          <header className="head-form header_login">
             <h2>Log In</h2>
 
             <p>login here using your username and password</p>
           </header>
 
           <br />
-          <div class="field-set">
+          <div className="field-set">
 
 
-            <span class="input-item">
-              <i class="fa fa-user-circle"></i>
+            <span className="input-item">
+              <i className="fa fa-user-circle"></i>
             </span>
 
-            <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required />
+            <input className="form-input" id="txt-input" type="text" placeholder="@UserName" required />
 
             <br />
-            <span class="input-item">
-              <i class="fa fa-key"></i>
+            <span className="input-item">
+              <i className="fa fa-key"></i>
             </span>
 
-            <input class="form-input" type="password" placeholder="Password" id="pwd" name="password" required />
+            <input className="form-input" type="password" placeholder="Password" id="pwd" name="password" required />
 
 
             <span>
-              <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+              <i className="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
             </span>
 
 
             <br />
 
 
-            <button class="log-in button_login"> Log In </button>
+            <button className="log-in button_login"> Log In </button>
           </div>
 
 
-          <div class="other">
+          <div className="other">
 
-            <button class="btn submits frgt-pass button_login">Forgot Password</button>
+            <button className="btn submits frgt-pass button_login">Forgot Password</button>
 
-            <button class="btn submits sign-up button_login">Sign Up
+            <button className="btn submits sign-up button_login">Sign Up
 
-              <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <i className="fa fa-user-plus" aria-hidden="true"></i>
             </button>
 
           </div>

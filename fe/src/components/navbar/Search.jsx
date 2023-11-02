@@ -6,13 +6,13 @@ const Search = () =>
     return (
         <Form className="d-flex">
             <input
-                className="rounded-2 me-2"
+                className="rounded-2 me-3"
                 type="search"
                 placeholder="Search"
 
                 aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button className='mx-2' variant="outline-success">Search</Button>
         </Form>
         
     )

@@ -12,4 +12,7 @@
     margin: 1rem;
     overflow: hidden;
 }
-
+.img_cart {
+    width: 30px;
+    height: 30px;
+}

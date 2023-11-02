@@ -3,7 +3,7 @@ import React from 'react'
 import MainLayout from '../layout/MainLayout'
 import { useGetKataneQuery } from '../api/apiSlice'
 import SingleNewKatana from '../components/katane/SingleNewKatana'
-
+import { nanoid } from 'nanoid'
 import { Col, Container, Row } from 'react-bootstrap';
 
 const NewKatane = () =>
@@ -16,6 +16,8 @@ const NewKatane = () =>
     isError: IsPostError,
 
   } = useGetKataneQuery("new")
+
+  console.log("SOno le new ", newKata)
 
   return (
     <MainLayout>
@@ -32,15 +34,18 @@ const NewKatane = () =>
               <Col className='d-flex justify-content-between align-items-center gap-3 flex-wrap'>
               { isPostSuccess && !isPostLoading ? (
             newKata ? (
-              newKata?.kata?.map((item) =>
+              newKata?.katas?.map((item) =>
               {
 
                 return (
                   <SingleNewKatana
+                  key={item._id}
                     img={ item.img }
                     title={ item.title }
                     price= { item.price}
                     category={ item.category }
+                    id={ item._id }
+                   
 
                   />
                 );

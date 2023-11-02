@@ -1,7 +1,7 @@
 import React from 'react'
 import MainLayout from '../layout/MainLayout'
 
-const DetailKatane = () =>
+const DetailKataneNew = () =>
 {
   return (
     <MainLayout>
@@ -13,4 +13,4 @@ const DetailKatane = () =>
   )
 }
 
-export default DetailKatane
+export default DetailKataneNew

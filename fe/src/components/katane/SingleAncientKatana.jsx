@@ -1,9 +1,10 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 const SingleAncientKatana = ({title, category, img, description, price, width, length, location, age, thickness}) => {
   return (
     <div className='card' style={{width: "18rem"}}>
-    <img src={ img} class="card-img-top" alt={title}/>
+    <img src={ img} className="card-img-top" alt={title}/>
     <div className="card-body">
       <h3 className="card-title">{title}</h3>
       <p className="card-text">{description}</p>

@@ -5,14 +5,13 @@ Content-Type: application/json
 
 {
     "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05874-scaled.jpg",
-    "descrizione": "Con gli ampi sode (spallacci) e la costruzione all'antica, questa armatura richiama lo stile delle armature medievali popolari nel periodo Edo. La moda delle armature in stile antico si affermò quando l'ottavo shogun Tokugawa Ieyoshi (1684-1750) promosse un revival degli armamenti tradizionali, tra cui spade e armature, per rivitalizzare quello che riteneva un declino dello spirito marziale della nazione La corazza è realizzata con centinaia di piccole piastre unite tra loro. Questo sistema, noto come hon-kozane, è un metodo complesso e costoso, ma efficace per allacciare insieme numerose piastre di piccole dimensioni; fu utilizzato fino al XVI secolo e poi recuperato durante il periodo Edo per le armature in stile destinate ai samurai di alto rango.",
-    "prezzo": 10000,
+    "description": "Con gli ampi sode (spallacci) e la costruzione all'antica, questa armatura richiama lo stile delle armature medievali popolari nel periodo Edo. La moda delle armature in stile antico si affermò quando l'ottavo shogun Tokugawa Ieyoshi (1684-1750) promosse un revival degli armamenti tradizionali, tra cui spade e armature, per rivitalizzare quello che riteneva un declino dello spirito marziale della nazione La corazza è realizzata con centinaia di piccole piastre unite tra loro. Questo sistema, noto come hon-kozane, è un metodo complesso e costoso, ma efficace per allacciare insieme numerose piastre di piccole dimensioni; fu utilizzato fino al XVI secolo e poi recuperato durante il periodo Edo per le armature in stile destinate ai samurai di alto rango.",
+    "price": 10000,
     "title": "Hon-kozane ni-mai do tosei gusoku",
-    "elmo": "Kabuto in ferro (tetsu sabiji) a sessantadue piastre, ciascuna montata con venticinque piccoli rivetti rastremati (ko-boshi) di dimensione decrescente; la piastra anteriore, più grande delle altre, è dotata di due linee di rivetti, mentre quella posteriore è lasciata vuota, per un totale di 1.550 rivetti.",
-    "maschera": "Maschera di tipo ressei-men (maschera dall'espressione feroce) in ferro (tetsu sabiji).",
-    "corazza": "Ni-mai do ( realizzata in due parti) con costruzione hon-kozane (piastrine individuali). Placche di pelle impressa con bordi in shakudo incisi, raffinati kanamono con hanabishi sono ripetuti su altre parti dell'armatura.",
-    "maniche": "In ferro, con un hanabishi sul dorso della mano (tekko)",
-    "parastinchi": "Rivestiti in lacca urushi nera."
+    "helmet": "Kabuto in ferro (tetsu sabiji) a sessantadue piastre, ciascuna montata con venticinque piccoli rivetti rastremati (ko-boshi) di dimensione decrescente; la piastra anteriore, più grande delle altre, è dotata di due linee di rivetti, mentre quella posteriore è lasciata vuota, per un totale di 1.550 rivetti.",
+    "mask": "Maschera di tipo ressei-men (maschera dall'espressione feroce) in ferro (tetsu sabiji).",
+    "armor": "Ni-mai do ( realizzata in due parti) con costruzione hon-kozane (piastrine individuali). Placche di pelle impressa con bordi in shakudo incisi, raffinati kanamono con hanabishi sono ripetuti su altre parti dell'armatura.",
+    "sleeves": "In ferro, con un hanabishi sul dorso della mano (tekko)"
 }
 
 ####
@@ -75,9 +74,15 @@ Content-Type: application/json
 
 ####
 GET http://localhost:5050/katanas HTTP/1.1
+####
+GET http://localhost:5050/katanas/byid/6541432a3c98c3815ebe3b42
 
 ####
-GET http://localhost:5050/katanas/bycategory?category=new
+GET http://localhost:5050/katanas/654169b01829600a35d52f24?category=new HTTP/1.1
+
+#####
+
+GET http://localhost:5050/katanas/category?category=ancien
 
 ####
 

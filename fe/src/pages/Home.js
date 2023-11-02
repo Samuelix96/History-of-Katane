@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+
 import Main from '../components/main/Main';
 import Carousels from "../components/carousel/Carousel"
 import { motion } from "framer-motion";

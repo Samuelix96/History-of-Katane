@@ -1,9 +1,9 @@
-import React, { useEffect} from 'react'
+import React from 'react'
 import { useGetPostsQuery } from '../../api/apiSlice';
 import Article from '../article/Article';
+import { nanoid } from 'nanoid';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+
 
 
 const Main = () =>
@@ -17,7 +17,7 @@ const Main = () =>
     isError: IsPostError,
   } = useGetPostsQuery();
 
-  console.log(posts);
+  
   
   return (
     <div>
@@ -28,6 +28,7 @@ const Main = () =>
             reverse = !reverse;
             return (
               <Article
+              key= { element._id}
                 title= {element.title}
                 subtitle = {element.subtitle}
                 img={ element.img }
