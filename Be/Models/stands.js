@@ -5,11 +5,11 @@ const StandsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    prezzo: {
+    price: {
         type: Number,
         required: true
     },
-    descrizione: {
+    description: {
         type: String,
         required: true
     },
@@ -17,11 +17,15 @@ const StandsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    materiale: {
+    material: {
         type: String,
         required: true
     },
-    forma: {
+    subtitle:{
+        type: String,
+        required: true
+    },
+    type: {
         type: String,
         required: true
     },

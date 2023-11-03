@@ -5,11 +5,11 @@ const HelmetsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    prezzo: {
+    price: {
         type: Number,
         required: true
     },
-    descrizione: {
+    description: {
         type: String,
         required: true
     },
@@ -17,18 +17,15 @@ const HelmetsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    altezza: {
+    height: {
         type: Number,
         required: true
     },
-    peso: {
+    weight: {
         type: Number,
         required: true
     },
-    verticale: {
-        type: Number,
-        required: true
-    },
+    
     subtitle: {
         type: String,
         required: true

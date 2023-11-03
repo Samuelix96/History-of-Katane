@@ -35,7 +35,7 @@ const NavigationHome = () =>
 
     return (
 
-        <Navbar expand="lg" className="nav-costume">
+        <Navbar expand="lg" className="nav-costume bg-secondary">
 
             <Container fluid >
 
@@ -48,7 +48,7 @@ const NavigationHome = () =>
                         height={ 100 }
 
                     />
-                    <a className=' link-underline link-underline-opacity-0 text-danger mx-2' href='/'> KATANSTORY</a>
+                    <a className=' link-underline link-underline-opacity-0 text-info  rounded-2 mx-2' href='/'> KATANSTORY</a>
                 </Navbar.Brand>
 
 
@@ -63,17 +63,20 @@ const NavigationHome = () =>
                         <Link className=' link-underline link-underline-opacity-0  text-dark fs-5 mx-2' to={ `/` } >Home</Link>
                         <Link className=' link-underline link-underline-opacity-0  text-dark fs-6 mx-2' to={ `/contact` }>Contact</Link>
 
-                        <NavDropdown className='fs-5' title="Katana" id="navbarScrollingDropdown">
+                        <NavDropdown className='fs-5 text-dark' title="Katana" id="navbarScrollingDropdown">
                             <NavDropdown.Item ><Link className='link-underline link-underline-opacity-0  text-dark fs-7 ' to={ `/newkatane` } >New Katane</Link></NavDropdown.Item>
                             <NavDropdown.Item >
                                 <Link className='link-underline link-underline-opacity-0  text-dark fs-7 ' to={ `/ancientkatane` }>Ancient Katana</Link>
                             </NavDropdown.Item>
                         </NavDropdown>
 
-                        <NavDropdown className='fs-5' title="Armor" id="navbarScrollingDropdown">
+                        <NavDropdown className='fs-5 text-dark' title="Equipment" id="navbarScrollingDropdown">
                             <NavDropdown.Item ><Link className=' link-underline link-underline-opacity-0  text-dark fs-5 mx-2' to={ `/armor` } >Armor</Link></NavDropdown.Item>
                             <NavDropdown.Item >
                                 <Link className=' link-underline link-underline-opacity-0  text-dark fs-5 mx-2' to={ `/helmet` } >Helmet</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item >
+                                <Link className=' link-underline link-underline-opacity-0  text-dark fs-5 mx-2' to={ `/support` } >Support</Link>
                             </NavDropdown.Item>
                         </NavDropdown>
                         <Link className=' link-underline link-underline-opacity-0  text-dark fs-5 mx-2' to={ `/museum` }  >
@@ -104,7 +107,7 @@ const NavigationHome = () =>
                             <Dropdown.Divider />
                             <div className='d-flex justify-content-between'>
                                 <Dropdown.Item><Button className=' btn btn-success'>
-                                    <Link className='link-underline link-underline-opacity-0 text-light' to={`/cartshop`}>
+                                    <Link className='link-underline link-underline-opacity-0 text-dark' to={`/cartshop`}>
                                     Vai al carrello
                                     </Link>
                                 </Button>

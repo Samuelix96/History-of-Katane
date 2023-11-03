@@ -1,20 +1,20 @@
 import React from 'react'
-import MainLayout from '../layout/MainLayout'
 import { motion } from "framer-motion";
-import SingleAncientKatana from '../components/katane/SingleAncientKatana';
-import { useGetKataneQuery } from '../api/apiSlice';
 import { Col, Container, Row } from 'react-bootstrap';
 import { nanoid } from 'nanoid';
-const AncientKatane = () =>
-{
+import { useGetSupportQuery } from '../api/apiSlice';
+import MainLayout from '../layout/MainLayout'
+import SingleSupport from '../components/support/SingleSupport';
 
+
+const Support = () => {
   const {
-    data: ancientKata,
+    data: supports,
     isLoading: isPostLoading,
     isSuccess: isPostSuccess,
     isError: IsPostError,
     
-  } = useGetKataneQuery("ancient")
+  } = useGetSupportQuery()
 
   return (
     <MainLayout>
@@ -23,26 +23,27 @@ const AncientKatane = () =>
         animate={ { width: "100%" } }
         exit={ { width: 0 } }
       >
-             <div className="  bg-body-primary p-4 rounded-4 m-3 ">
-          <h1 className='text-center'>Ancient Katane</h1>
+
+          <div className="  bg-body-secondary p-4 rounded-4 m-3 ">
+          <h1 className='text-center'>Support </h1>
           </div>
-         
+          
 
           <Container fluid>
             <Row>
               <Col className='d-flex gap-3 justify-content-between flex-wrap'>
               { isPostSuccess && !isPostLoading ? (
-        ancientKata ? (
-          ancientKata?.katas?.map((item) =>
+        supports ? (
+          supports?.stand?.map((support) =>
           {
             
             return (
-              <SingleAncientKatana
-              key= {item._id}
-                title= {item.title}
-                price= { item.price}
-                category = { item.category}
-                img={ item.img }
+              <SingleSupport
+              key= {nanoid()}
+                title= {support.title}
+                price= { support.price}
+               subtitle= {support.subtitle}
+                cover={ support.cover }
               />
             );
           })
@@ -50,8 +51,8 @@ const AncientKatane = () =>
           <p>...Loading</p>
         )
       ) : IsPostError ? (
-        <p>Error into call by category</p>
-      ) : null }
+        <p>Error into call by get</p>
+      ) : "nulla" }
               </Col>
             </Row>
           </Container>
@@ -59,7 +60,7 @@ const AncientKatane = () =>
       </motion.div>
 
     </MainLayout>
-
   )
 }
-export default AncientKatane
+
+export default Support

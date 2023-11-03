@@ -1,61 +1,68 @@
 import React from 'react'
 import MainLayout from '../layout/MainLayout'
 import { motion } from "framer-motion";
-import SingleArmor from '../components/armor/SingleArmor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useGetArmorQuery } from '../api/apiSlice';
-const Armor = () => {
+import ArmorCard from '../components/armor/ArmorCard';
+import { nanoid } from 'nanoid';
+import "../components/style/armor.css"
+
+
+
+
+const Armor = () =>
+{
 
   const {
     data: armors,
-    Loading: isLoading,
-    Success: isSuccess,
-    Error: isError 
+    isLoading: isPostLoading,
+    isSuccess: isPostSuccess,
+    isError: IsPostError,
   } = useGetArmorQuery();
 
   console.log("Armors", armors)
 
   return (
-    <div> 
+    <div className=''>
       <MainLayout>
         <motion.div
-        initial={ { width: 0 } }
-        animate={ { width: "100%" } }
-        exit={ { width: 0 } }
-      >
-        <h1>Armor</h1>
-        <Container fluid className='my-5'>
+          initial={ { width: 0 } }
+          animate={ { width: "100%" } }
+          exit={ { width: 0 } }
+          
+        >
+          <h1 className='text-center '>Armor</h1>
+          <Container fluid className='my-5 '>
             <Row>
-              <Col className='d-flex justify-content-between align-items-center gap-3 flex-wrap'>
-              { isSuccess && !isLoading ? (
-            armors ? (
-              armors.armor?.map((build) =>
-              {
-
-                return (
-                  <SingleArmor
-                  key={build._id}
-                    img={ build.img }
-                    title={ build.title }
-                    price= { build.price}
-                    
-                  />
-                );
-              })
-            ) : (
-              <p>...Loading</p>
-            )
-          ) : isError ? (
-            <p>Error into call by category</p>
-          ) : null }
+              <Col className='d-flex justify-content-between flex-wrap gap-2'>
+                { isPostSuccess && !isPostLoading ? (
+                  armors ? (
+                    armors.armor?.map((build) =>
+                    {
+                      return (
+                        <ArmorCard
+                          key={ build._id }
+                          img={ build.img }
+                          title={ build.title }
+                          helmet={build.helmet}
+                          price={ build.price }
+                        />
+                      );
+                    })
+                  ) : (
+                    <p>...Loading</p>
+                  )
+                ) : IsPostError ? (
+                  <p>Error into call by category</p>
+                ) : "nulla riprova" }
               </Col>
             </Row>
           </Container>
-              
-      </motion.div>
+
+        </motion.div>
       </MainLayout>
     </div>
-    
+
   )
 }
 

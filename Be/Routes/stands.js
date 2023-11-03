@@ -61,11 +61,12 @@ stands.post('/stands/create', async (req, res) =>
 {
     const newStand = new StandsModel({
         cover: req.body.cover,
-        descrizione: req.body.descrizione,
-        prezzo: Number(req.body.prezzo),
+        description: req.body.description,
+        price: Number(req.body.price),
         title: req.body.title,
-        materiale: req.body.materiale,
-        forma: req.body.forma
+        material: req.body.material,
+        subtitle: req.body.subtitle,
+        type: req.body.type
     })
 
     try
@@ -105,7 +106,7 @@ stands.patch('/stands/update/:id', async (req, res) =>
     {
         const updateStand = req.body;
         const options = { new: true };
-        const stand = await HelmetsModel.findByIdAndUpdate(id, updateStand, options)
+        const stand = await StandsModel.findByIdAndUpdate(id, updateStand, options)
 
         res.status(200).send({
             message: "Update effettuato con successo",
@@ -115,6 +116,27 @@ stands.patch('/stands/update/:id', async (req, res) =>
 
     } catch (error)
     {
+        res.status(500).send({
+            message: "Errore nel server interno",
+            error: error.message,
+            statusCode: 500
+        })
+    }
+})
+
+stands.delete('/stands/delete/:id', async(req,res)=> {
+    const {id} = req.params;
+    try{
+        const stand = await StandsModel.findByIdAndDelete(id)
+        if (!stand) {
+            return res.status(404).send({
+                statusCode: 404,
+                message: `Stand not found with this id ${id} or already deleted`
+            })
+        }
+
+        res.status(200).send(stand)
+    } catch(errore) {
         res.status(500).send({
             message: "Errore nel server interno",
             error: error.message,

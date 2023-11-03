@@ -61,12 +61,11 @@ helmets.post('/helmets/create', async (req, res) =>
 {
     const newHelmet = new HelmetsModel({
         img: req.body.img,
-        descrizione: req.body.descrizione,
-        prezzo: Number(req.body.prezzo),
+        description: req.body.description,
+        price: Number(req.body.price),
         title: req.body.title,
-        altezza: Number(req.body.altezza),
-        peso: Number(req.body.peso),
-        verticale: Number(req.body.verticale),
+        height: Number(req.body.height),
+        weight: Number(req.body.weight),
         subtitle: req.body.subtitle
     })
 

@@ -6,6 +6,7 @@ import MainLayout from '../layout/MainLayout';
 const Contact = () =>
 {
   return (
+     
     <MainLayout>
         <motion.div
       initial={ { width: 0 } }
@@ -46,6 +47,7 @@ const Contact = () =>
       </div>
     </motion.div>
     </MainLayout>
+
     
   );
 }
