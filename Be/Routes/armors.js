@@ -1,6 +1,8 @@
 const express = require("express");
+const isAdmin = require("../Middlewares/isAdmin");
 const armors = express.Router();
 const ArmorsModel = require("../Models/armors")
+
 
 armors.get('/armors', async (req, res) =>
 {
@@ -57,7 +59,7 @@ armors.get('/armors/bytitle', async (req, res) =>
     }
 })
 
-armors.post('/armors/create', async (req, res) =>
+armors.post('/armors/create', isAdmin,  async (req, res) =>
 {
     const newArmors = new ArmorsModel({
         img: req.body.img,
@@ -89,7 +91,7 @@ armors.post('/armors/create', async (req, res) =>
 
 })
 
-armors.patch('/armors/update/:id', async (req, res) =>
+armors.patch('/armors/update/:id', isAdmin,  async (req, res) =>
 {
     const { id } = req.params;
 

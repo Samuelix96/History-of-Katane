@@ -1,6 +1,8 @@
 const express = require("express");
+const isAdmin = require("../Middlewares/isAdmin");
 const posts = express.Router();
 const PostsModel = require("../Models/posts");
+
 
 posts.get('/posts', async(req,res) => {
     try {
@@ -57,7 +59,7 @@ posts.get('/posts/bytitle', async (req, res) =>
     }
 })
 
-posts.post('/posts/create', async (req, res) =>
+posts.post('/posts/create', isAdmin,  async (req, res) =>
 {
     const newPost = new PostsModel({
         title: req.body.title,
@@ -86,7 +88,7 @@ posts.post('/posts/create', async (req, res) =>
 
 })
 
-posts.patch('/posts/update/:id', async (req, res) =>
+posts.patch('/posts/update/:id', isAdmin,  async (req, res) =>
 {
     const { id } = req.params;
 

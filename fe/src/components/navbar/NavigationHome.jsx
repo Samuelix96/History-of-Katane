@@ -14,7 +14,7 @@ import { buyProducts } from '../../reducers/CartSlice';
 const NavigationHome = () =>
 {
     const [ show, setShow ] = useState(false);
-    const [ numbProducts, setNumbProducts ] = useState(0);
+    const [ numbProducts, setNumbProducts ] = useState(1);
 
 
     const productsCart = useSelector(buyProducts)
@@ -98,7 +98,7 @@ const NavigationHome = () =>
                             ) }
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            { productsCart?.map((product) => (
+                            { productsCart && productsCart?.map((product) => (
                                 <Dropdown.Item key={ product._id }>
                                    
                                     <img className='img_cart' src={ product.img } /> - <span>{ product.title }  - { product.price }$</span>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { buyProducts,removeCart ,addCart, productsError } from '../../reducers/CartSlice';
+import { buyProducts,removeCart ,addCart, productsError , amount, total} from '../../reducers/CartSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +15,15 @@ const SingleNewKatana = ({title, id,  category, img, description, price, width, 
   const products = useSelector(buyProducts);
   console.log(products)
 
-  const notify = () => toast("Wow so easy !");
+  const totalProducts = useSelector(total)
+  const totalAmount = useSelector(amount)
+
+  console.log(totalProducts);
+  console.log(totalAmount);
+
+
+
+ 
 
   const productId = id
   console.log(productId)

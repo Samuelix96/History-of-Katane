@@ -82,7 +82,7 @@ input[className="form-input"] {
     font-family: 'Abel', sans-serif;
     color: #5E6472;
 
-    outline: none;
+    outline:none;
     border: none;
 
     border-radius: 0px 5px 5px 0px;
@@ -90,15 +90,16 @@ input[className="form-input"] {
 
 }
 
-input[id="txt-input"] {
-    width: 250px;
-}
 
 input:focus {
     transform: translateX(-2px);
     border-radius: 5px;
 }
-
+.mini_sector{
+    display: flex;
+    flex-direction: column;
+    
+}
 
 .button_login {
     display: inline-block;
@@ -118,7 +119,7 @@ input:focus {
     text-align: center;
     transition: all 0.2s linear;
 
-    margin: 7% auto;
+    margin: 8% auto;
     letter-spacing: 0.05em;
 }
 

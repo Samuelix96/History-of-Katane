@@ -71,6 +71,7 @@ users.post('/users/create', async (req, res) =>
        nickName: req.body.nickName,
        email: req.body.email,
        password:hashedPassword,
+       role: req.body.role,
        birth: req.body.birth,
        avatar: req.body.avatar
     })

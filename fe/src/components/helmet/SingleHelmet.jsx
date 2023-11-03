@@ -1,5 +1,6 @@
 import React from 'react'
 import "./helmet.css"
+import { amount, total, buyProducts, addCart, removeCart } from '../../reducers/CartSlice';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 

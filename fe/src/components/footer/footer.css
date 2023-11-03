@@ -18,7 +18,7 @@ body {
   .footer {
     position: relative;
     padding-top: 45px;
-    background-color: goldenrod;
+    background-color: rgb(68, 66, 63);
   }
   
   .footer .newsletter {
@@ -26,7 +26,7 @@ body {
     max-width: 900px;
     margin: 0 auto 45px auto;
     padding: 30px 15px;
-    background: #c48704;
+    background: #2f2e2b;
     text-align: center;
   }
   

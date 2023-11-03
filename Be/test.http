@@ -131,13 +131,13 @@ POST http://localhost:5050/users/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "www",
-    "lastName": "rrr",
-    "nickName": "rrrn",
-    "email": "martarossi@gmail.com",
-    "password": "martarossi",
+    "firstName": "Lewis",
+    "lastName": "Hammer",
+    "nickName": "lewis44",
+    "email": "lewis44@gmail.com",
+    "password": "hammertime",
     "birth": "7 aprile",
-    "avatar": "ee"
+    "avatar": "https://static.independent.co.uk/2023/10/26/23/26-a50ba532574c40e687c6bf5b7141cb6d.jpg"
 }
 
 ####
@@ -156,8 +156,8 @@ POST http://localhost:5050/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "martarossi@gmail.com",
-    "password": "martarossi"
+    "email": "lewis44@gmail.com",
+    "password": "hammertime"
 }
 
 ####

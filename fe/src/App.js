@@ -8,7 +8,6 @@ import DetailArmor from './pages/DetailArmor'
 import DetailHelmet from './pages/DetailHelmet'
 import DetailKatane from './pages/DetailKatane'
 import DetailSupport from './pages/DetailSupport'
-
 import Helmet from './pages/Helmet'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -23,37 +22,31 @@ import Travel from './pages/Travel'
 
 const App = () =>
 {
+ 
   return (
     <>
-
-
       <Router>
         <Routes>
-          
+                {/* //* ROTTE LIBERE  */ }
           <Route exact path='/' element={ <Home /> } />
           <Route path='/login' element={ <Login /> } />
           <Route path='/registration' element={ <Registration /> } />
-          <Route path='/contact' element={ <Contact /> } />
 
-          <Route path='/newKatane' element={ <NewKatane /> } />
-          <Route path='/ancientKatane' element={ <AncientKatane /> } />
-          <Route path='/armor' element={ <Armor /> } />
-          <Route path='/helmet' element={ <Helmet /> } />
-          <Route path='/support' element={ <Support /> } />
-
-
-          <Route path='/detailkatane/:id' element={ <DetailKatane /> } />
-          <Route path='/detailarmor/:id' element={ <DetailArmor /> } />
-          <Route path='/detailsupport/:id' element={ <DetailSupport /> } />
-          <Route path='/detailhelmet/:id' element={ <DetailHelmet /> } />
-
-          <Route path='/museum' element={ <Museum /> } />
-          <Route path='/travel' element={ <Travel /> } />
-
+              {/* //? ROTTE PROTETTE  // */}
           <Route element={ <ProtectedRoutes /> }>
-
+            <Route path='/contact' element={ <Contact /> } />
+            <Route path='/newKatane' element={ <NewKatane /> } />
+            <Route path='/ancientKatane' element={ <AncientKatane /> } />
+            <Route path='/armor' element={ <Armor /> } />
+            <Route path='/helmet' element={ <Helmet /> } />
+            <Route path='/support' element={ <Support /> } />
+            <Route path='/detailkatane/:id' element={ <DetailKatane /> } />
+            <Route path='/detailarmor/:id' element={ <DetailArmor /> } />
+            <Route path='/detailsupport/:id' element={ <DetailSupport /> } />
+            <Route path='/detailhelmet/:id' element={ <DetailHelmet /> } />
+            <Route path='/museum' element={ <Museum /> } />
+            <Route path='/travel' element={ <Travel /> } />
           </Route>
-
 
         </Routes>
       </Router>

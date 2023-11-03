@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 import Header from '../components/header/Header';
 import Jumbotron from '../components/jumbotron/Jumbotron';
 import MainLayout from '../layout/MainLayout';
-
-
+import { useSession } from '../hooks/AuthSession';
 
 
 const Home = () =>
 {
-
-
+  const session = useSession()
+  console.log(session)
+  
 
   return (
     <>
@@ -21,7 +21,6 @@ const Home = () =>
         initial={ { width: 0 } }
         animate={ { width: "100%" } }
         exit={ { width: 0 } }
-
       >
           <Jumbotron />
           <Carousels />
