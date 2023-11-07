@@ -43,7 +43,7 @@ const Support = () => {
                 title= {support.title}
                 price= { support.price}
                subtitle= {support.subtitle}
-                cover={ support.cover }
+                img={ support.img }
               />
             );
           })

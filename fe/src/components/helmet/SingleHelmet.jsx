@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
-const SingleHelmet = ({ img, description, title, subtitle }) =>
+const SingleHelmet = ({ img,id, description, title, subtitle }) =>
 {
     return (
         <Card className="card-helmet" >

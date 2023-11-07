@@ -60,7 +60,7 @@ stands.get('/stands/bytitle', async (req, res) =>
 stands.post('/stands/create', async (req, res) =>
 {
     const newStand = new StandsModel({
-        cover: req.body.cover,
+        img: req.body.img,
         description: req.body.description,
         price: Number(req.body.price),
         title: req.body.title,

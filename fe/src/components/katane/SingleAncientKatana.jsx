@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { amount, total, buyProducts, addCart, removeCart } from '../../reducers/CartSlice';
 
 const SingleAncientKatana = ({title, category, img, description, price, width, length, location, age, thickness}) => {
   return (

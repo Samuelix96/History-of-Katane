@@ -27,16 +27,16 @@ export const useSession = () =>
         console.log(expirationDate)
     }
 
-    useEffect(() =>
-    {
-        console.log(session)
-        if (!session)
-        {
-            navigate('/login', { replace: true })
-        }
+    // useEffect(() =>
+    // {
+    //     console.log(session)
+    //     if (!session)
+    //     {
+    //         navigate('/login', { replace: true })
+    //     }
         
-        checkTokenExpirationTime();
-    }, [ navigate, session ]);
+    //     checkTokenExpirationTime();
+    // }, [ navigate, session ]);
 
     return decodeSession
 

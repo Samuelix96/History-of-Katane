@@ -13,7 +13,7 @@ const StandsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    cover: {
+    img: {
         type: String,
         required: true
     },

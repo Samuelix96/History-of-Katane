@@ -39,10 +39,11 @@ const NewKatane = () =>
 
                 return (
                   <SingleNewKatana
-                  key={item._id}
+                  key={nanoid()}
                     img={ item.img }
                     title={ item.title }
                     price= { item.price}
+                    description= { item.description}
                     category={ item.category }
                     id={ item._id }
                    

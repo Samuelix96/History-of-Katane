@@ -105,7 +105,7 @@ Content-Type: application/json
     "price": 44.00,
     "subtitle": "1-layer Rack Base Black Lacquered Wood With Red Felt",
     "description": "Black lacquer finish, which makes this display look nice with your samurai swords such as katana.",
-    "cover": "https://d3524jlyu2md0e.cloudfront.net/88/16329338397268.webp",
+    "img": "https://d3524jlyu2md0e.cloudfront.net/88/16329338397268.webp",
     "material": "Good quality, all black, solid wood frame, easy to assemble.",
     "type": "Single horizontal wood sword display stand."
 }

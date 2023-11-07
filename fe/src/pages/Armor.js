@@ -41,11 +41,12 @@ const Armor = () =>
                     {
                       return (
                         <ArmorCard
-                          key={ build._id }
+                          key={ nanoid() }
                           img={ build.img }
                           title={ build.title }
                           helmet={build.helmet}
                           price={ build.price }
+                          id={ build._id }
                         />
                       );
                     })

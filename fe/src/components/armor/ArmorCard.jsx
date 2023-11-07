@@ -12,13 +12,14 @@ const ArmorCard = ({ img, id, description, price, title, helmet, subtitle }) =>
 
 
 
+
   const totalProduct = useSelector(total)
   const totalAmount = useSelector(amount)
   const products = useSelector(buyProducts)
 
   const handleAddCart = () =>
   {
-    dispatch(addCart({ armor: id, price, img, title }))
+    dispatch(addCart({ id: id,  price, img, title, }))
   }
 
   const removeToCart = () =>
@@ -38,6 +39,9 @@ const ArmorCard = ({ img, id, description, price, title, helmet, subtitle }) =>
         </Card.Text>
         <Card.Text>
           { price }$
+        </Card.Text>
+        <Card.Text className=' d-none'>
+          { id }$
         </Card.Text>
         <div class="vstack gap-2 col-md-5 mx-auto">
           <button

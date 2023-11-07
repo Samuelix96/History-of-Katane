@@ -7,6 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { buyProducts } from '../../reducers/CartSlice';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { useSession } from '../../hooks/AuthSession';
 
 
 
@@ -14,17 +17,33 @@ import { buyProducts } from '../../reducers/CartSlice';
 const NavigationHome = () =>
 {
     const [ show, setShow ] = useState(false);
+    const [ profile, setProfile ] = useState(false)
     const [ numbProducts, setNumbProducts ] = useState(1);
+    const session = useSession()
 
+    const handleShow = () =>
+    {
+        setShow(!show);
+        setProfile(false)
+    };
+
+    const handleCloseShow = () => setShow(false)
+
+    const handleProfile = () =>
+    {
+        setProfile(!profile)
+        setShow(false)
+    }
+
+    const handleCloseProfile = () => setProfile(false)
 
     const productsCart = useSelector(buyProducts)
     console.log("Ehi", productsCart)
 
-    const handleCloseShow = () => setShow(false)
 
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+
+
 
     useEffect(() =>
     {
@@ -90,28 +109,28 @@ const NavigationHome = () =>
                     </Nav>
                     <Search />
 
-                    <Dropdown show={ show}  align="end">
-                        <Dropdown.Toggle as={ Button }   variant="link" onClick={ handleShow }>
+                    <Dropdown show={ show } align="end">
+                        <Dropdown.Toggle as={ Button } variant="link" onClick={ handleShow }>
                             <FontAwesomeIcon icon={ faShoppingCart } style={ { color: "#464b50" } } />
                             { numbProducts > 0 && (
                                 <Badge className=" position-absolute cart-badge">{ numbProducts }</Badge>
                             ) }
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            { productsCart && productsCart?.map((product) => (
+                            {  productsCart && productsCart?.map((product) => (
                                 <Dropdown.Item key={ product._id }>
-                                   
-                                    <img className='img_cart' src={ product.img } /> - <span>{ product.title }  - { product.price }$</span>
+
+                                    <img className='img_cart' src={ product.img } /> - <span>{ product.title } - { product.price }$</span>
                                 </Dropdown.Item>
                             )) }
-                            <Dropdown.Divider />
-                            <div className='d-flex justify-content-between'>
+
+                            <div className='d-flex justify-content-between my-2'>
                                 <Dropdown.Item><Button className=' btn btn-success'>
-                                    <Link className='link-underline link-underline-opacity-0 text-dark' to={`/cartshop`}>
-                                    Vai al carrello
+                                    <Link className='link-underline link-underline-opacity-0 text-dark' to={ `/cartshop` }>
+                                        Vai al carrello
                                     </Link>
                                 </Button>
-                                   
+
                                 </Dropdown.Item>
                                 <Dropdown.Item>
                                     <Button variant="red" className="btn btn btn-danger" onClick={ handleCloseShow }>
@@ -122,19 +141,61 @@ const NavigationHome = () =>
 
                         </Dropdown.Menu>
                     </Dropdown>
+                    <Dropdown show={ profile } align="end">
+                        <Dropdown.Toggle as={ Button } variant="none" onClick={ handleProfile }>
+                            { session ? (
+                                <div className='d-flex align-items-center'>
+                                    <img className='img_profile me-2' src={ session.avatar } />
+                                    <div className='text__profile'>
+                                        <p className='mb-0'>{ session.firstName }</p>
+                                        <p className='mb-0'>{ session.lastName }</p>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className='d-flex align-items-center'>
+                                    <img className='img_profile me-2' src='https://i.pinimg.com/736x/a8/57/00/a85700f3c614f6313750b9d8196c08f5.jpg' />
+                                    <div className='text__profile'>
+                                        <p className='mb-0'>Accedi</p>
+                                       
+                                    </div>
+                                </div>
+                            ) }
+                        </Dropdown.Toggle>
 
-                    <div className='login_box'>
-                        <Link>
-                            <button className=' btn btn-secondary m-2 p-1'>
-                                sign in
-                            </button>
-                        </Link>
-                    </div>
+                        <Dropdown.Menu>
+                            { session ? (
+                                // Contenuto specifico quando la sessione è presente
+                                <>
+                                    <Dropdown.Item>Elemento 1</Dropdown.Item>
+                                    <Dropdown.Item>Elemento 2</Dropdown.Item>
+                                    {/* Aggiungi qui altri elementi specifici della sessione */ }
+                                </>
+                            ) : (
+                                // Contenuto specifico quando la sessione non è presente
+                                <>
+                                    <Dropdown.Item>Altro elemento 1</Dropdown.Item>
+                                    <Dropdown.Item>Altro elemento 2</Dropdown.Item>
+                                    {/* Aggiungi qui altri elementi specifici in assenza della sessione */ }
+                                </>
+                            ) }
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+
+
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
 
     )
 }
 
 export default NavigationHome
+
+
+{/* <img className='img_profile me-2' src='https://i.pinimg.com/736x/a8/57/00/a85700f3c614f6313750b9d8196c08f5.jpg' />
+<div className='text__profile'>
+<p className='mb-0'>Samuele</p>
+<p className='mb-0'>Bagorha</p>
+</div> */}
