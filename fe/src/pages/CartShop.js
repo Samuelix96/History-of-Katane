@@ -23,7 +23,7 @@ const CartShop = () =>
   const tax = useSelector(iva)
 
 
-  const totalWithTax = (totalAmount * (1 + tax)).toFixed(2);
+  const totalWithTax = (totalAmount + ((totalAmount * tax) /100)).toFixed(2);
 
 
   const handleRemove = (productId) => {
@@ -31,9 +31,9 @@ const CartShop = () =>
     if (removedProduct) {
       dispatch(removeCart(productId));
   
-      const newTax = 0.10; 
-      dispatch(updateTaxAndTotalWithTax(newTax)); // Aggiorna la tassa e il totale con tasse
-  
+       
+      dispatch(updateTaxAndTotalWithTax); // Aggiorna la tassa e il totale con tasse
+      
       toast.success('Prodotto rimosso dal carrello con successo');
     }
   };
@@ -48,6 +48,7 @@ const CartShop = () =>
         <Container>
           <div className="text-center m-5"><h2><strong>Shopping Cart</strong></h2></div>
           <Row>
+            
             <Col xs={ 12 } md={ 8 }>
               <Card className="shadow">
                 <Card.Body>
@@ -56,20 +57,25 @@ const CartShop = () =>
                   {
                     return (
                       <>
+                        
 
                       <Button className='my-2' onClick={() => handleRemove(item.id)}>
                       <FontAwesomeIcon icon={faTrash} />
                       
                       </Button>
                       <ToastContainer />
+                      {/* <span>{item.title} ({item.quantity})</span> */}
+
                       <SingleCartShop
-                        key={ item._id}
+                      
+                        key={ nanoid()}
                         img={ item.img }
-                        title={ item.title }
+                        title={ item.title} 
                         description={ item.description }
                         price={ item.price }
 
                       />
+                          
                         </>
                     )
                   }) }
@@ -90,16 +96,16 @@ const CartShop = () =>
                   </Row>
                   <Row>
                     <Col xs={ 8 } md={ 8 }>
-                    Tax {tax * 100}% ({tax * totalAmount})
+                    Tax {tax}% 
                     </Col>
                     <Col xs={ 4 } md={ 4 } className="text-right">
-                      { tax } 
+                    ${(tax * totalAmount )/100}
                     </Col>
                   </Row>
                   <hr></hr>
                   <Row>
                     <Col xs={ 8 } md={ 8 }>
-                    <strong>Total amount of (including VAT {tax * 100}%)</strong>
+                    <strong>Total amount of (including VAT {tax}%)</strong>
                     </Col>
                     <Col xs={ 4 } md={ 4 } className="text-right">
                     <strong>${totalWithTax}</strong>

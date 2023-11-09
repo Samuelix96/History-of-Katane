@@ -42,6 +42,7 @@ const Support = () => {
               key= {nanoid()}
                 title= {support.title}
                 price= { support.price}
+                id= { support._id}
                subtitle= {support.subtitle}
                 img={ support.img }
               />

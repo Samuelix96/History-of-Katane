@@ -59,7 +59,7 @@ posts.get('/posts/bytitle', async (req, res) =>
     }
 })
 
-posts.post('/posts/create', isAdmin,  async (req, res) =>
+posts.post('/posts/create',   async (req, res) =>
 {
     const newPost = new PostsModel({
         title: req.body.title,
@@ -88,7 +88,7 @@ posts.post('/posts/create', isAdmin,  async (req, res) =>
 
 })
 
-posts.patch('/posts/update/:id', isAdmin,  async (req, res) =>
+posts.patch('/posts/update/:id',   async (req, res) =>
 {
     const { id } = req.params;
 
@@ -116,6 +116,27 @@ posts.patch('/posts/update/:id', isAdmin,  async (req, res) =>
 
     } catch (error)
     {
+        res.status(500).send({
+            message: "Errore nel server interno",
+            error: error.message,
+            statusCode: 500
+        })
+    }
+})
+
+posts.delete('/posts/delete/:id', async(req, res) => {
+    const {id} = req.params;
+    try{
+        const post = await PostsModel.findByIdAndDelete(id)
+        if(!post) {
+            return res.status(404).send({
+                statusCode: 404,
+                message: `Questo id ${id} non esiste o è gia stato eliminato `
+            })
+        }
+        res.status(200).send(post)
+
+    }catch (error) {
         res.status(500).send({
             message: "Errore nel server interno",
             error: error.message,

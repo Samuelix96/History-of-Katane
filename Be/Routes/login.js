@@ -4,10 +4,12 @@ const login = express.Router();
 const bcrypt = require('bcrypt');
 const UsersModel = require("../Models/users")
 const jwt = require('jsonwebtoken');
+const isAdmin = require("../Middlewares/isAdmin");
+
 
 require("dotenv").config();
 
-login.post('/login', async (req, res) => {
+login.post('/login',  async (req, res) => {
   const user = await UsersModel.findOne({ email: req.body.email });
 
   if (!user) {

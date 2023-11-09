@@ -58,7 +58,7 @@ helmets.get('/helmets/bytitle', async (req, res) =>
     }
 })
 
-helmets.post('/helmets/create', isAdmin,  async (req, res) =>
+helmets.post('/helmets/create',  async (req, res) =>
 {
     const newHelmet = new HelmetsModel({
         img: req.body.img,
@@ -89,7 +89,7 @@ helmets.post('/helmets/create', isAdmin,  async (req, res) =>
 
 })
 
-helmets.patch('/helmets/update/:id', isAdmin,  async (req, res) =>
+helmets.patch('/helmets/update/:id',  async (req, res) =>
 {
     const { id } = req.params;
 

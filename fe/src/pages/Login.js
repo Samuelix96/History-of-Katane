@@ -53,11 +53,11 @@ const Login = () =>
         if (userRole === "admin")
         {
           // Salvare i dati dell'utente con ruolo "admin" in localStorageAdmin
-          localStorage.setItem('Admin', JSON.stringify(decodedToken));
+          localStorage.setItem('admin', JSON.stringify(decodedToken));
         } else
         {
           // Salvare i dati dell'utente con ruolo "user" in localStorageUser
-          localStorage.setItem('User', JSON.stringify(decodedToken));
+          localStorage.setItem('user', JSON.stringify(decodedToken));
         }
 
         console.log(data.token)

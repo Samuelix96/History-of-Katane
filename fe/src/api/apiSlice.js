@@ -3,19 +3,31 @@ import { createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 export const apiSlice = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({ baseUrl: `${process.env.REACT_APP_SERVER_URL}`}),
+    tagTypes: ['Posts'],
     endpoints: (builder) => ({
 
         //*  api POSTS
         getPosts : builder.query({
             query: () => '/posts',
+            providesTags:['Posts']
         }),
         addPosts : builder.mutation({
             query: (posts) => ({
+                headers:{
+                    "Content-Type": "application/json"
+                },
                 url: '/posts/create',
                 method: 'POST',
                 body: posts,
             }),
-            invalidatesTags: ['POSTS']
+            invalidatesTags: ['Posts']
+        }),
+        deletePosts : builder.mutation({
+            query: (id) => ({
+                url: `/posts/delete/${id}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ['Posts']
         }),
 
      //*  api KATANE
@@ -142,6 +154,7 @@ export const {
     //? exportPOSTS
     useGetPostsQuery,
     useAddPostsMutation,
+    useDeletePostsMutation,
     
     //? export KATANE
     useGetKataneQuery,

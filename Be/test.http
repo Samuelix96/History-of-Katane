@@ -131,13 +131,14 @@ POST http://localhost:5050/users/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Lewis",
-    "lastName": "Hammer",
-    "nickName": "lewis44",
-    "email": "lewis44@gmail.com",
-    "password": "hammertime",
+    "firstName": "Samuele",
+    "lastName": "Bagorha",
+    "nickName": "Samuelix96",
+    "email": "darksamuelix@gmail.com",
+    "password": "ghostof77",
     "birth": "7 aprile",
-    "avatar": "https://static.independent.co.uk/2023/10/26/23/26-a50ba532574c40e687c6bf5b7141cb6d.jpg"
+    "role":"admin",
+    "avatar": "https://hips.hearstapps.com/hmg-prod/images/ghost-of-tsushima-01-1595861990.jpg"
 }
 
 ####
@@ -156,8 +157,8 @@ POST http://localhost:5050/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "lewis44@gmail.com",
-    "password": "hammertime"
+    "email": "darksamuelix@gmail.com",
+    "password": "ghostof77"
 }
 
 ####
@@ -185,4 +186,7 @@ GET http://localhost:5050/posts/bytitle?title=h
 
 ####
 
+DELETE http://localhost:5050/posts/delete/654c0a58ae558390daad8526 HTTP/1.1
+
+####
 

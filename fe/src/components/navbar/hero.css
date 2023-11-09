@@ -8,9 +8,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(https://img.freepik.com/free-vector/watercolor-chinese-style-background_52683-96085.jpg?w=1380&t=st=1698623178~exp=1698623778~hmac=c684546268c018cf75fee82202621c0d72660d112afa187a7b8f41c383909ea9);
+    font-family: Papyrus, fantasy;
+    background-image: url(https://img.freepik.com/free-vector/watercolor-chinese-style-background_52683-96085.jpg?w=1380&t=st=1699457366~exp=1699457966~hmac=63c505da47c4ec633d3fa5415ee0f1287fac37dd5f8830a8d4aa6fa75c79164b);
 }
 
-*{
-    font-family: Papyrus, fantasy;
-}

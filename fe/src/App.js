@@ -17,6 +17,7 @@ import NewKatane from './pages/NewKatane'
 import Registration from './pages/Registration'
 import Support from './pages/Support'
 import Travel from './pages/Travel'
+import Wish from './pages/Wish'
 
 
 
@@ -48,6 +49,7 @@ const App = () =>
             <Route path='/museum' element={ <Museum /> } />
             <Route path='/travel' element={ <Travel /> } />
             <Route path='/cartshop' element={ <CartShop /> } />
+            <Route path='/wishList' element={ <Wish /> } />
 
           </Route>
 

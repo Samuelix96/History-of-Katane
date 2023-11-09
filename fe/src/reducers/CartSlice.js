@@ -29,7 +29,7 @@ const CartSlice = createSlice({
     products: loadCartFromLocalStorage(),
     totalItems: 0,
     totalAmount: 0,
-    tax: 0.10,
+    tax: 22,
   },
   reducers: {
     addCart: (state, action) =>
@@ -53,7 +53,7 @@ const CartSlice = createSlice({
       if (removedProduct)
       {
         state.totalAmount -= parseFloat(removedProduct.price);
-        state.tax = state.totalAmount * 0.10;
+        // state.tax = (state.totalAmount * state.tax) /100;
         state.products = state.products.filter((product) => product.id !== action.payload);
       }
       saveCartToLocalStorage(state.products);
@@ -71,10 +71,9 @@ const CartSlice = createSlice({
     {
       state.tax = action.payload
     },
-    updateTaxAndTotalWithTax: (state, action) =>
+    updateTaxAndTotalWithTax: (state) =>
     {
-      state.tax = action.payload;
-      state.totalWithTax = (state.totalAmount * (1 + state.tax)).toFixed(2);
+      state.totalWithTax = (state.totalAmount + ((state.totalAmount * state.tax)/100)).toFixed(2);
     },
 
   },

@@ -8,7 +8,7 @@ import "./header.css"
 const Header = () =>
 {
     return (
-        <div className='container-fluid section_box'>
+        <div className='container-fluid section_box my-5'>
             <main className="main">
                 <section className="card-lg__container">
                     <p className="card__text-sm">Samurai way</p>

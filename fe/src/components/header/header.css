@@ -1,7 +1,7 @@
 .section_box {
 
     min-height: calc(100vh - 32px);
-    display: flex;
+   
     align-items: center;
     justify-content: center;
   }
@@ -11,11 +11,11 @@
     background-size: cover;
     box-shadow: 
       inset 0 0 100vw 100vw rgba(0,0,0,0.3),0 16px 8px -8px rgba(0, 0, 0, 0.4);
-    max-width: 800px;
-    height: 440px;
+    max-width: 1240px;
+    height: 600px;
     padding: 0 0 32px;
-    display: flex;
-    overflow-x: scroll;
+   
+   
   }
   /*CARD*/
   .card__btn {
@@ -62,11 +62,12 @@
     padding: 0 16px 40px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+   align-items: center;
   }
   
     .card__text-lg {
       font-size: 40px;
+      text-align: center;
       font-weight: 400;
       letter-spacing: 1.4px;
     } 
@@ -92,7 +93,8 @@
     height: 232px;
     margin: 0 -88px 0 0;
     display: flex;
-    align-self: flex-end;
+    justify-content: center;
+    gap: 30px;
   }
   .card-sm {
     background: rgb(135, 44, 44);
@@ -101,8 +103,8 @@
     box-shadow: inset 0 0 100vw 100vw rgba(0, 0, 0, 0.3),
       0 16px 8px -8px rgba(0,0,0,0.4);
     border-radius: 8px;
-    width: 104px;
-    height: calc(100% - 64px); 
+    width: 191px;
+    height: calc(100% - -100px);
     margin: 0 8px;
     padding: 24px 16px;
     display: flex;

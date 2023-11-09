@@ -31,10 +31,7 @@ const SingleNewKatana = ({ title, id, category, img, description, price, width, 
     toast.success('Prodotto aggiunto al carrello con successo');
   }
 
-  const handleRemove = () =>
-  {
-    dispatch(removeCart(id))
-  }
+  
 
 
 
@@ -57,11 +54,7 @@ const SingleNewKatana = ({ title, id, category, img, description, price, width, 
             className='btn btn-success'>
             Add to cart
           </button>
-          <button
-            onClick={ handleRemove }
-            className='btn btn-success'>
-            Remove to Cart
-          </button>
+          
           <ToastContainer />
 
         </div>

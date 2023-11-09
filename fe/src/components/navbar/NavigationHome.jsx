@@ -10,35 +10,52 @@ import { buyProducts } from '../../reducers/CartSlice';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { useSession } from '../../hooks/AuthSession';
+import { wishList } from '../../reducers/WishSlice';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
 
 const NavigationHome = () =>
 {
+    const wishlist = useSelector(wishList)
     const [ show, setShow ] = useState(false);
+    const [ wish, setWish ] = useState(false)
     const [ profile, setProfile ] = useState(false)
     const [ numbProducts, setNumbProducts ] = useState(1);
+    const [ numbWish, setNumbWish ] = useState(1)
+    const productsCart = useSelector(buyProducts)
     const session = useSession()
 
     const handleShow = () =>
     {
         setShow(!show);
         setProfile(false)
+        setWish(false)
     };
 
+    const handleWishlist = () =>
+    {
+        setWish(!wish)
+        setProfile(false)
+        setShow(false)
+
+    }
+
     const handleCloseShow = () => setShow(false)
+    const handleCloseWish = () => setWish(false)
 
     const handleProfile = () =>
     {
         setProfile(!profile)
+        setWish(false)
         setShow(false)
     }
 
     const handleCloseProfile = () => setProfile(false)
 
-    const productsCart = useSelector(buyProducts)
-    console.log("Ehi", productsCart)
+
 
 
 
@@ -48,7 +65,8 @@ const NavigationHome = () =>
     useEffect(() =>
     {
         setNumbProducts(productsCart.length)
-    }, [ productsCart ])
+        setNumbWish(wishlist.length)
+    }, [ productsCart, wishlist ])
 
 
 
@@ -109,6 +127,43 @@ const NavigationHome = () =>
                     </Nav>
                     <Search />
 
+                    <Dropdown show={ wish } align="end">
+                        <Dropdown.Toggle as={ Button } variant="link" onClick={ handleWishlist }>
+                            <FontAwesomeIcon icon={ faHeart } style={ { color: "red" } } />
+                            { numbWish > 0 && (
+                                <Badge className=" position-absolute cart-badge">{ numbWish }</Badge>
+                            ) }
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            { wishlist && wishlist?.map((product) => (
+                                <Dropdown.Item key={ product._id }>
+
+                                    <img className='img_cart' src={ product.img } /> - <span>{ product.title } - { product.price }$</span>
+                                </Dropdown.Item>
+                            )) }
+
+                            <div className='d-flex justify-content-between my-2'>
+                                <Dropdown.Item><Button className=' btn btn-success'>
+                                    <Link className='link-underline link-underline-opacity-0 text-dark' to={ `/wishlist` }>
+                                        Vai alla WishList
+                                    </Link>
+                                </Button>
+
+                                </Dropdown.Item>
+                                <Dropdown.Item>
+                                    <Button variant="red" className="btn btn btn-danger" onClick={ handleCloseWish }>
+                                        Close menu
+                                    </Button>
+                                </Dropdown.Item>
+                            </div>
+
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+
+
+
                     <Dropdown show={ show } align="end">
                         <Dropdown.Toggle as={ Button } variant="link" onClick={ handleShow }>
                             <FontAwesomeIcon icon={ faShoppingCart } style={ { color: "#464b50" } } />
@@ -117,7 +172,7 @@ const NavigationHome = () =>
                             ) }
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            {  productsCart && productsCart?.map((product) => (
+                            { productsCart && productsCart?.map((product) => (
                                 <Dropdown.Item key={ product._id }>
 
                                     <img className='img_cart' src={ product.img } /> - <span>{ product.title } - { product.price }$</span>
@@ -156,7 +211,7 @@ const NavigationHome = () =>
                                     <img className='img_profile me-2' src='https://i.pinimg.com/736x/a8/57/00/a85700f3c614f6313750b9d8196c08f5.jpg' />
                                     <div className='text__profile'>
                                         <p className='mb-0'>Accedi</p>
-                                       
+
                                     </div>
                                 </div>
                             ) }
@@ -166,15 +221,23 @@ const NavigationHome = () =>
                             { session ? (
                                 // Contenuto specifico quando la sessione è presente
                                 <>
-                                    <Dropdown.Item>Elemento 1</Dropdown.Item>
-                                    <Dropdown.Item>Elemento 2</Dropdown.Item>
+                                    <Dropdown.Item>Profile</Dropdown.Item>
+                                    <Dropdown.Item>Logout</Dropdown.Item>
                                     {/* Aggiungi qui altri elementi specifici della sessione */ }
                                 </>
                             ) : (
                                 // Contenuto specifico quando la sessione non è presente
                                 <>
-                                    <Dropdown.Item>Altro elemento 1</Dropdown.Item>
-                                    <Dropdown.Item>Altro elemento 2</Dropdown.Item>
+                                    <Dropdown.Item>
+                                        <Link to={ `/login` }>
+                                            Login
+                                        </Link>
+                                    </Dropdown.Item>
+                                    <Dropdown.Item>
+                                        <Link to={ `/registration` }>
+                                            Registration
+                                        </Link>
+                                    </Dropdown.Item>
                                     {/* Aggiungi qui altri elementi specifici in assenza della sessione */ }
                                 </>
                             ) }

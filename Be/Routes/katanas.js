@@ -78,7 +78,7 @@ katanas.get('/katanas/category', async (req, res) =>
     }
 })
 
-katanas.post('/katanas/create', isAdmin,  async (req, res) =>
+katanas.post('/katanas/create',  async (req, res) =>
 {
     const newKata = new katanasModel({
         title: req.body.title,
@@ -112,7 +112,7 @@ katanas.post('/katanas/create', isAdmin,  async (req, res) =>
 
 })
 
-katanas.patch('/katanas/update/:id', isAdmin,  async (req, res) =>
+katanas.patch('/katanas/update/:id',   async (req, res) =>
 {
     const { id } = req.params;
 
@@ -148,7 +148,7 @@ katanas.patch('/katanas/update/:id', isAdmin,  async (req, res) =>
     }
 })
 
-katanas.delete('/katanas/delete/:id',  isAdmin, async(req,res) => {
+katanas.delete('/katanas/delete/:id',  async(req,res) => {
     const { id} = req.params;
 
     try{
