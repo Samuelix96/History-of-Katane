@@ -1,4 +1,6 @@
 import { createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
+import { Search } from "react-bootstrap-icons"
+
 
 export const apiSlice = createApi({
     reducerPath: "api",
@@ -31,8 +33,17 @@ export const apiSlice = createApi({
         }),
 
      //*  api KATANE
+        getAllKatane : builder.query({
+            query : () => `/katanas`,
+            providesTags:['Katanas']
+        }),
         getKatane: builder.query({
-            query: (category) => `/katanas/category?category=${category}`
+            query: (category) => `/katanas/category/${category}`,
+            providesTags:['Katanas']
+        }),
+        getKataneByTitle : builder.query({
+            query: (searchTerm) => `/katanas/title/${searchTerm}`,
+            providesTags:['Katanas'],
         }),
         addKatane: builder.mutation({
             query: (kataneData) => ({
@@ -40,10 +51,11 @@ export const apiSlice = createApi({
                 method: 'POST',
                 body: kataneData,
             }),
-            invalidatesTags: ['KATANE']
+            invalidatesTags: ['Katanas']
         }),
         getKataneById : builder.query({
-            query: (id) => `/katanas/byid/${id}`
+            query: (id) => `/katanas/${id}`,
+           
         }),
         patchKatane: builder.mutation({
             query: (updateKata, id) => ({
@@ -51,19 +63,28 @@ export const apiSlice = createApi({
                 method: 'PATCH',
                 body: updateKata,
             }),
-            invalidatesTags: ['KATANE']
+            invalidatesTags: ['Katanas']
         }),
         deleteKatane: builder.mutation({
             query: (id) => ({
                 url: `/katanas/delete/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['KATANE']
+            invalidatesTags: ['Katanas']
         }),
 
         //* api ARMOR
         getArmor : builder.query({
-            query: () => `/armors`
+            query: (currentPage) => `/armors?page=${currentPage}`,
+            providesTags:['Armors']
+        }),
+        getArmorById : builder.query({
+            query: (id) => `/armors/${id}`,
+            providesTags:['Armors']
+        }),
+        getArmorByTitle: builder.query({
+            query: (searchTerm) => `/armors/bytitle?title=${searchTerm}`,
+            providesTags:['Armors']
         }),
         addArmor: builder.mutation({
             query: (armor) => ({
@@ -71,7 +92,7 @@ export const apiSlice = createApi({
                 method: 'POST',
                 body: armor,
             }),
-            invalidatesTags: ['ARMORS']
+            invalidatesTags: ['Armors']
         }),
         patchArmor : builder.mutation({
             query: (id, armorBody) => ({
@@ -79,19 +100,28 @@ export const apiSlice = createApi({
                 method: 'PATCH',
                 body: armorBody
             }), 
-            invalidatesTags: ['ARMORS']
+            invalidatesTags: ['Armors']
         }),
         deleteArmor : builder.mutation({
             query: (id) => ({
                 url: `/armors/delete/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['ARMORS']
+            invalidatesTags: ['Armors'],
         }),
 
         //* api Helmet
         getHelmet : builder.query({
-            query: () => `/helmets`
+            query: (currentPage) => `/helmets?page=${currentPage}`,
+            providesTags:['Helmets'],
+        }),
+        getHelmetById : builder.query({
+            query: (id) => `/helmets/${id}`,
+            providesTags:['Helmets'],
+        }),
+        getHelmetByTitle: builder.query({
+            query: (searchTerm) => `/helmets/bytitle?title=${searchTerm}`,
+            providesTags:['Helmets'],
         }),
         addHelmet: builder.mutation({
             query: (armor) => ({
@@ -99,7 +129,7 @@ export const apiSlice = createApi({
                 method: 'POST',
                 body: armor,
             }),
-            invalidatesTags: ['HELMETS']
+            invalidatesTags: ['Helmets']
         }),
         patchHelmet : builder.mutation({
             query: (id, armorBody) => ({
@@ -107,19 +137,29 @@ export const apiSlice = createApi({
                 method: 'PATCH',
                 body: armorBody
             }), 
-            invalidatesTags: ['HELMETS']
+            invalidatesTags: ['Helmets']
         }),
         deleteHelmet : builder.mutation({
             query: (id) => ({
                 url: `/helmets/delete/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['HELMETS']
+            invalidatesTags: ['Helmets']
         }),
 
         //* 
         getSupport : builder.query({
-            query: () => `/stands`
+            query: (currentPage) => `/stands?page=${currentPage}`,
+            providesTags:['Stands'],
+        }),
+        getSupportById: builder.query({
+            query: (id) => `/stands/${id}`,
+            providesTags:['Stands'],
+        }),
+        getSupportByTitle: builder.query({
+            query: (searchTerm) => `/stands/bytitle?title=${searchTerm}`,
+            providesTags:['Stands'],
+            
         }),
         addSupport: builder.mutation({
             query: (armor) => ({
@@ -127,7 +167,7 @@ export const apiSlice = createApi({
                 method: 'POST',
                 body: armor,
             }),
-            invalidatesTags: ['HELMETS']
+            invalidatesTags: ['Stands']
         }),
         patchSupport : builder.mutation({
             query: (id, armorBody) => ({
@@ -135,19 +175,21 @@ export const apiSlice = createApi({
                 method: 'PATCH',
                 body: armorBody
             }), 
-            invalidatesTags: ['HELMETS']
+            invalidatesTags: ['Stands']
         }),
         deleteSupport : builder.mutation({
             query: (id) => ({
                 url: `/stands/delete/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['HELMETS']
+            invalidatesTags: ['Stands']
         }),
+        
 
     })
 })
 
+   
 
 export const {
 
@@ -157,13 +199,18 @@ export const {
     useDeletePostsMutation,
     
     //? export KATANE
+    useGetAllKataneQuery,
     useGetKataneQuery,
     useGetKataneByIdQuery,
+    useGetKataneByTitleQuery,
     useAddKataneMutation,
+    useDeleteKataneMutation,
 
     //? export ARMORS
 
     useGetArmorQuery,
+    useGetArmorByIdQuery,
+    useGetArmorByTitleQuery,
     useAddArmorMutation,
     usePatchArmorMutation,
     useDeleteArmorMutation,
@@ -171,6 +218,8 @@ export const {
     //? export HELMET
     
     useGetHelmetQuery,
+    useGetHelmetByIdQuery,
+    useGetHelmetByTitleQuery,
     useAddHelmetMutation,
     useDeleteHelmetMutation,
     usePatchHelmetMutation,
@@ -178,9 +227,11 @@ export const {
     //? export STANDS 
 
     useGetSupportQuery,
+    useGetSupportByIdQuery,
+    useGetSupportByTitleQuery,
     useAddSupportMutation,
     usePatchSupportMutation,
     useDeleteSupportMutation,
-
+    
     
 } = apiSlice

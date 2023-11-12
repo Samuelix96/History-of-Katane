@@ -22,6 +22,9 @@ const CartShop = () =>
   const productsCart = useSelector(buyProducts)
   const tax = useSelector(iva)
 
+  console.log(totalAmount)
+  console.log(tax)
+
 
   const totalWithTax = (totalAmount + ((totalAmount * tax) /100)).toFixed(2);
 

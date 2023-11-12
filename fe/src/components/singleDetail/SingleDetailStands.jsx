@@ -1,11 +1,8 @@
 import React from 'react'
-import { Container, Row, Col, } from 'react-bootstrap'
-import { nanoid } from 'nanoid'
 import "./detailArmor.css"
-
-const SingleDetailArmor = ({ img, id, description, price, title, }) =>
-{
-   return (
+const SingleDetailStands = ({ img, id, description, price, title, }) => {
+  return (
+    <div>
       <div className=''>
          <section id="services" className="services section-bg">
             <div className="">
@@ -61,7 +58,8 @@ const SingleDetailArmor = ({ img, id, description, price, title, }) =>
          </section>
 
       </div>
-   )
+    </div>
+  )
 }
 
-export default SingleDetailArmor
+export default SingleDetailStands

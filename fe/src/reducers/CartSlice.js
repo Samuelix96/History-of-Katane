@@ -1,5 +1,5 @@
 
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 
 
@@ -16,6 +16,14 @@ const loadCartFromLocalStorage = () =>
   }
 
 };
+const loadTotal = () => {
+  const totalData = localStorage.getItem('total');
+  if (totalData) {
+    return JSON.parse(totalData);
+  } else {
+    return 0;
+  }
+};
 
 const saveCartToLocalStorage = (cart) =>
 {
@@ -23,12 +31,16 @@ const saveCartToLocalStorage = (cart) =>
 };
 
 
+const saveTotal = total => {
+  localStorage.setItem('total', JSON.stringify(total));
+};
+
 const CartSlice = createSlice({
   name: "cart",
   initialState: {
     products: loadCartFromLocalStorage(),
     totalItems: 0,
-    totalAmount: 0,
+    totalAmount: loadTotal(),
     tax: 22,
   },
   reducers: {
@@ -45,18 +57,18 @@ const CartSlice = createSlice({
 
 
       saveCartToLocalStorage(state.products);
+      saveTotal(state.totalAmount)
     },
-    removeCart: (state, action) =>
-    {
+    removeCart: (state, action) => {
       state.totalItems -= 1;
-      const removedProduct = state.products.find((product) => product.id === action.payload);
-      if (removedProduct)
-      {
+      const indexToRemove = state.products.findIndex(product => product.id === action.payload);
+      if (indexToRemove !== -1) {
+        const removedProduct = state.products[indexToRemove];
         state.totalAmount -= parseFloat(removedProduct.price);
-        // state.tax = (state.totalAmount * state.tax) /100;
-        state.products = state.products.filter((product) => product.id !== action.payload);
+        state.products.splice(indexToRemove, 1);
       }
       saveCartToLocalStorage(state.products);
+      saveTotal(state.totalAmount);
     },
 
     emptyCart: (state) =>
@@ -66,6 +78,7 @@ const CartSlice = createSlice({
       state.totalAmount = 0;
       state.tax = 0;
       saveCartToLocalStorage(state.products);
+      saveTotal(state.totalAmount)
     },
     totalTax: (state, action) =>
     {
@@ -98,19 +111,4 @@ export default CartSlice.reducer;
 
 
 
-  // removeCart: (state, action) =>
-    // {
-    //   if (state.totalItems > 0)
-    //   {
-    //     state.totalItems -= 1;
-    //   }
-      // state.totalAmount = state.products.map((item) =>
-      // {
-      //   return Number(item.price)
-
-      // }).reduce((acc, current) => acc + current, 0)
-    //   state.totalAmount = state.products.reduce((acc, product) => acc + parseFloat(product.price), 0);
-    //   state.tax = state.totalAmount * 0.10;
-    //   state.products = state.products.filter((product) => product.id !== action.payload);
-    //   saveCartToLocalStorage(state.products);
-    // },
+ 

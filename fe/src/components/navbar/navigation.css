@@ -24,3 +24,25 @@
     object-fit: contain;
    
 }
+.nav-costume {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100%;
+    background-image: url(https://img.freepik.com/premium-vector/oriental-style-gray-wave-seamless-pattern-white-background_8087-4957.jpg?size=626&ext=jpg&ga=GA1.1.98934841.1698622056&semt=ais);
+}
+
+.home_nav {
+   
+}
+.contact_nav{
+    
+}
+.equi_nav{
+    
+}
+.kata_nav{
+    
+}
+.museum_nav{
+   
+}

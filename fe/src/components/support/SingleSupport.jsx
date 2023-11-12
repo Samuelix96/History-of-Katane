@@ -2,8 +2,10 @@ import React from 'react'
 import { Card, CardBody, CardImg,  Button, CardText, CardFooter } from 'react-bootstrap'
 import { Heart } from 'react-bootstrap-icons'
 import { useDispatch, useSelector } from 'react-redux'
+import { useDeleteSupportMutation } from '../../api/apiSlice'
 import {  addCart} from '../../reducers/CartSlice'
 import { addWish } from '../../reducers/WishSlice'
+
 
 
 const SingleSupport = ({img,id,  title, subtitle, price}) => {
@@ -21,6 +23,18 @@ const SingleSupport = ({img,id,  title, subtitle, price}) => {
     
   }
 
+  const [deleteSupport] = useDeleteSupportMutation()
+
+  const handleDelete = async(e) => {
+    e.preventDefault();
+
+    try {
+      await deleteSupport(id)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
 
 
@@ -41,6 +55,7 @@ const SingleSupport = ({img,id,  title, subtitle, price}) => {
         </Card.Text>
         <CardFooter className='d-flex '>
         <Button className=" w-10 my-2 btn btn-success" onClick={handleAddToCart} >Add to Cart</Button>
+        <Button className=" w-10 my-2 btn btn-success" onClick={handleDelete} >Elimina </Button>
         <Button className=" w-10 btn btn-danger" onClick={handleAddToWish} ><Heart /> Add to Wishlist</Button>
         </CardFooter>
        

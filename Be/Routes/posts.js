@@ -17,7 +17,7 @@ posts.get('/posts', async(req,res) => {
         res.status(500).send({
             statusCode:500,
             message: "Errore interno al server",
-            error: message.error
+            error: message.error,
         })
     }
 })

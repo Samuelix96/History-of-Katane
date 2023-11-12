@@ -17,6 +17,7 @@ import NewKatane from './pages/NewKatane'
 import Registration from './pages/Registration'
 import Support from './pages/Support'
 import Travel from './pages/Travel'
+import User from './pages/User'
 import Wish from './pages/Wish'
 
 
@@ -42,14 +43,16 @@ const App = () =>
             <Route path='/armor' element={ <Armor /> } />
             <Route path='/helmet' element={ <Helmet /> } />
             <Route path='/support' element={ <Support /> } />
-            <Route path='/detailkatane/:id' element={ <DetailKatane /> } />
-            <Route path='/detailarmor/:id' element={ <DetailArmor /> } />
-            <Route path='/detailsupport/:id' element={ <DetailSupport /> } />
-            <Route path='/detailhelmet/:id' element={ <DetailHelmet /> } />
+            <Route path='/detailkatane/:idkatane' element={ <DetailKatane /> } />
+            <Route path='/detailarmor/:idarmor' element={ <DetailArmor /> } />
+            <Route path='/detailsupport/:idsupport' element={ <DetailSupport /> } />
+            <Route path='/detailhelmet/:idhelmet' element={ <DetailHelmet /> } />
             <Route path='/museum' element={ <Museum /> } />
             <Route path='/travel' element={ <Travel /> } />
             <Route path='/cartshop' element={ <CartShop /> } />
             <Route path='/wishList' element={ <Wish /> } />
+            <Route path='/profile/:sessionid' element={ <User /> } />
+
 
           </Route>
 

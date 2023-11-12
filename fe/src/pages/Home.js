@@ -22,8 +22,8 @@ const Home = () =>
         exit={ { width: 0 } }
       >
           <Jumbotron />
-          <Carousels />
           <Header />
+          <Carousels />
           <Main />
           </motion.div> 
         </MainLayout>
