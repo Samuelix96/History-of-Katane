@@ -2,54 +2,108 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import "../components/style/contact.css"
 import MainLayout from '../layout/MainLayout';
+import { FontAwesomeIcon,  } from '@fortawesome/react-fontawesome';
+import { faEnvelope,  faLocationDot, faPhone} from '@fortawesome/free-solid-svg-icons';
+
+
+
 
 const Contact = () =>
 {
   return (
-     
+
     <MainLayout>
-        <motion.div
-      initial={ { width: 0 } }
-      animate={ { width: "100%" } }
-      exit={ { width: 0 } }
-    >
-      <h1 className='text-center my-4'>If you want to contact me, these are my addresses</h1>
-      <div>
+      <motion.div
+        initial={ { width: 0 } }
+        animate={ { width: "100%" } }
+        exit={ { width: 0 } }
+      >
 
-        <div className='box_form'>
-        <div className="container_form_section">
-          <form id="contact" action="" method="post">
-            <h3>Colorlib Contact Form</h3>
-            <h4>Contact us for custom quote</h4>
-            <fieldset className='fieldset_contact'>
-              <input placeholder="Your name" type="text" tabindex="1" required autofocus />
-            </fieldset >
-            <fieldset className='fieldset_contact'>
-              <input placeholder="Your Email Address" type="email" tabindex="2" required />
-            </fieldset>
-            <fieldset className='fieldset_contact'>
-              <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required />
-            </fieldset>
-            <fieldset className='fieldset_contact'>
-              <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required />
-            </fieldset>
-            <fieldset className='fieldset_contact'>
-              <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
-            </fieldset>
-            <fieldset className='fieldset_contact'>
-              <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-            </fieldset>
-            <p className="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p>
-          </form>
-        </div>
+
+        <div>
+          <h1 className=' back__h1 '>If you want to contact me, these are my addresses</h1>
         </div>
 
-      </div>
-    </motion.div>
+        <div className='body__contact '>
+          <section id="contact">
+
+            <h1 className="section-header">Contact</h1>
+
+
+            <div class="contact-wrapper">
+
+              <form id="contact-form" className="form-horizontal">
+
+                <div className="form-group">
+                  <div className="col-sm-12">
+                    <input type="text" className="form_control" placeholder="NAME" name="name"  required />
+                  </div>
+                </div>
+                <br/>
+                <div claclassNamess="form-group">
+                  <div className="col-sm-12">
+                    <input type="email" className="form_control"  placeholder="EMAIL" name="email"  required />
+                  </div>
+                </div>
+                <br/>
+                <textarea className="form_control textarea_control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
+
+                <button className="btn btn-primary send-button d-flex"  type="submit" >
+                  <div className="alt-send-button">
+                    <i className="fa fa-paper-plane"></i><span className="send-text">SEND</span>
+                  </div>
+
+                </button>
+
+              </form>
+
+
+
+              <div className="direct-contact-container">
+
+                <ul className="contact-list">
+                  <li className="list-item"><FontAwesomeIcon icon={faLocationDot} /><span className="contact-text place">City, State</span></li>
+
+                  <li className="list-item"><FontAwesomeIcon icon={faPhone} /><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></li>
+
+                  <li className="list-item"><FontAwesomeIcon icon={faEnvelope} /><span className="contact-text gmail"><a href="mailto:#" title="Send me an email">hitmeup@gmail.com</a></span></li>
+
+                </ul>
+
+                <hr />
+                <ul className="social-media-list">
+                  <li><a href="/" target="_blank" className="contact-icon">
+                  <FontAwesomeIcon icon="fa-brands fa-linkedin" /></a>
+                  </li>
+                  <li><a href="/" target="_blank" className="contact-icon">
+                  <FontAwesomeIcon icon="fa-brands fa-instagram" /></a>
+                  </li>
+                  <li>
+                  <a href="/museum" target="_blank" className="contact-icon"><FontAwesomeIcon icon="fa-brands fa-twitter" /></a>
+                  </li>
+                  <li><a href="/" target="_blank" className="contact-icon">
+                  <FontAwesomeIcon icon="fa-brands fa-github" /></a>
+                  </li>
+                </ul>
+                <hr />
+
+                <div className="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+        </div>
+
+      </motion.div>
     </MainLayout>
 
-    
+
   );
 }
 
 export default Contact;
+

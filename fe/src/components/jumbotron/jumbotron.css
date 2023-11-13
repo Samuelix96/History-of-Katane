@@ -1,8 +1,8 @@
 .back-jumbo{
-    background-position: 100%;
-    background-repeat: no-repeat;
+    
+    
     background-size: cover;
-    background-image: url(https://img.freepik.com/free-vector/hand-painted-japanese-styled-watercolour-landscape-background_1048-19239.jpg?w=1380&t=st=1699458031~exp=1699458631~hmac=2e0239e5f3e5de9fa352ec9ef9d3d0f39ecd95b816b49f6a5f9d72d4eb4fa5e2);
+    background: url(https://img.freepik.com/free-vector/hand-painted-japanese-styled-watercolour-landscape-background_1048-19239.jpg?w=1380&t=st=1699458031~exp=1699458631~hmac=2e0239e5f3e5de9fa352ec9ef9d3d0f39ecd95b816b49f6a5f9d72d4eb4fa5e2) no-repeat center center fixed;
     height: 450px;
 }
 .back-jumbo :where(h1) {

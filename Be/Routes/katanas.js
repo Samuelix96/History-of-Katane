@@ -260,7 +260,11 @@ katanas.delete('/katanas/delete/:id', async (req, res) =>
         })
     } catch (error)
     {
-
+        res.status(500).send({
+            message: "Errore nel server interno",
+            error: error.message,
+            statusCode: 500
+        })
     }
 })
 

@@ -9,12 +9,14 @@ import DetailArmor from './pages/DetailArmor'
 import DetailHelmet from './pages/DetailHelmet'
 import DetailKatane from './pages/DetailKatane'
 import DetailSupport from './pages/DetailSupport'
+import ForgetPassword from './pages/ForgetPassword'
 import Helmet from './pages/Helmet'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Museum from './pages/Museum'
 import NewKatane from './pages/NewKatane'
 import Registration from './pages/Registration'
+import Reset from './pages/Reset'
 import Support from './pages/Support'
 import Travel from './pages/Travel'
 import User from './pages/User'
@@ -34,6 +36,8 @@ const App = () =>
           <Route exact path='/' element={ <Home /> } />
           <Route path='/login' element={ <Login /> } />
           <Route path='/registration' element={ <Registration /> } />
+          <Route path='/forgetpassword' element={ <ForgetPassword /> } />
+          <Route path='/resetpassword/:resetoken' element={ <Reset /> } />
 
               {/* //? ROTTE PROTETTE  // */}
           <Route element={ <ProtectedRoutes /> }>
@@ -52,6 +56,8 @@ const App = () =>
             <Route path='/cartshop' element={ <CartShop /> } />
             <Route path='/wishList' element={ <Wish /> } />
             <Route path='/profile/:sessionid' element={ <User /> } />
+            
+
 
 
           </Route>

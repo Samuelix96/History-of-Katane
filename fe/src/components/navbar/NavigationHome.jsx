@@ -18,7 +18,6 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
 const NavigationHome = () =>
-
 {
     const navigate = useNavigate()
     const wishlist = useSelector(wishList)
@@ -59,7 +58,8 @@ const NavigationHome = () =>
 
 
 
-    const logout = () => {
+    const logout = () =>
+    {
         localStorage.clear("token")
         navigate(`/`)
     }
@@ -78,7 +78,7 @@ const NavigationHome = () =>
 
     return (
 
-        <Navbar expand="lg" className="nav-costume m-3 ">
+        <Navbar expand="lg" className="nav-costume  ">
 
             <Container fluid >
 
@@ -131,7 +131,7 @@ const NavigationHome = () =>
 
 
                     </Nav>
-                    {/* <Search /> */}
+                    {/* <Search /> */ }
 
                     <Dropdown className='m-2' show={ wish } align="end">
                         <Dropdown.Toggle as={ Button } variant="link" onClick={ handleWishlist }>
@@ -226,36 +226,44 @@ const NavigationHome = () =>
 
                         <Dropdown.Menu>
                             { session ? (
-                                // Contenuto specifico quando la sessione è presente
+
                                 <>
                                     <Dropdown.Item>
                                         <Button className='btn btn-info'>
-                                        <Link className='link-underline link-underline-opacity-0' to={`/profile/${session.id}`}>
-                                        Profile 
-                                        </Link>
+                                            <FontAwesomeIcon className='mx-3' icon="fa-solid fa-user" />
+                                            <Link className='link-underline link-underline-opacity-0' to={ `/profile/${ session.id }` }>
+                                                Profile
+                                            </Link>
                                         </Button>
-                                        
-                                        </Dropdown.Item>
+
+                                    </Dropdown.Item>
                                     <Dropdown.Item>
-                                        <Button onClick={logout} className='btn btn-danger'>
-                                        Logout
+                                        <Button onClick={ logout } className='btn btn-danger'>
+                                            <FontAwesomeIcon className='mx-3' icon="fa-solid fa-right-from-bracket" />Logout
                                         </Button>
-                                        
-                                        </Dropdown.Item>
+
+                                    </Dropdown.Item>
                                     {/* Aggiungi qui altri elementi specifici della sessione */ }
                                 </>
                             ) : (
                                 // Contenuto specifico quando la sessione non è presente
                                 <>
                                     <Dropdown.Item>
-                                        <Link to={ `/login` }>
-                                            Login
-                                        </Link>
+                                        <Button className='btn btn-info'>
+
+                                            <Link className='link-underline link-underline-opacity-0' to={ `/login` }>
+                                                <FontAwesomeIcon className='mx-3' icon="fa-solid fa-right-to-bracket" /> Login
+                                            </Link>
+                                        </Button>
+
                                     </Dropdown.Item>
                                     <Dropdown.Item>
-                                        <Link to={ `/registration` }>
-                                            Registration
-                                        </Link>
+                                        <Button className='btn btn-warning'>
+                                            <Link className="link-underline link-underline-opacity-0" to={ `/registration` }>
+                                                <FontAwesomeIcon className='' icon="fa-solid fa-address-card" /> Registration
+                                            </Link>
+                                        </Button>
+
                                     </Dropdown.Item>
                                     {/* Aggiungi qui altri elementi specifici in assenza della sessione */ }
                                 </>

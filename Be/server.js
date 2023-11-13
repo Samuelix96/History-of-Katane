@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const PORT = 5050;
+const cors = require("cors");
+require("dotenv").config();
 const armorsRoute = require("./Routes/armors")
 const helmetsRoute = require("./Routes/helmets")
 
@@ -9,8 +11,10 @@ const standsRoute = require("./Routes/stands")
 const katanasRoute = require("./Routes/katanas")
 const loginRoute = require("./Routes/login")
 const postsRoute = require("./Routes/posts")
-require("dotenv").config();
-const cors = require("cors");
+const registrationRoute = require("./Routes/registration")
+const forgetRoute = require("./Routes/forget")
+const resetRoute = require("./Routes/reset")
+
 
 const app = express();
 
@@ -25,6 +29,10 @@ app.use('/', standsRoute)
 app.use('/', loginRoute)
 app.use('/', postsRoute)
 app.use('/', katanasRoute)
+app.use('/', registrationRoute)
+app.use('/', forgetRoute)
+app.use('/', resetRoute)
+
 
 
 

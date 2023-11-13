@@ -24,10 +24,24 @@ const Login = () =>
   }
   console.log(loginData)
 
+  const isEmailValid = (email) => {
+    // Espressione regolare per la validazione dell'email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
 
   const onSubmit = async (e) =>
   {
     e.preventDefault();
+    if (!isEmailValid(loginData.email)) {
+      setError("Inserisci un'email valida");
+      setTimeout(() => {
+        setError(null);
+      }, 4000);
+      
+      return;
+    }
     try
     {
       const response = await fetch(`${ process.env.REACT_APP_SERVER_URL }/login`, {
@@ -90,48 +104,56 @@ const Login = () =>
           <div className="con">
             <header className="head-form header_login">
               <h2>Log In</h2>
-              <p>login here using your username and password</p>
+              <p>Login here using your email and password</p>
             </header>
             <br />
             <div className="field-set">
               <div className='mini_sector my-3'>
-                <label>Username</label>
-                <input 
-                 className="form-input " 
-                 id="txt-input" 
-                 type="text" 
-                 name="email"
-                 onChange={handleInputChange}
-                 placeholder="@UserName"
+                <label>Email</label>
+                <input
+                  className="form-input "
+                  id="txt-input"
+                  type="text"
+                  name="email"
+                  onChange={ handleInputChange }
+                  placeholder="@Email"
                   required />
               </div>
+              { error && (
+                <div className="alert alert-danger mb-3">
+                  { error }
+                </div>
+              ) }
               <div className='mini_sector'>
                 <label>Password</label>
                 <input
-                 className="form-input"
+                  className="form-input"
                   type="password"
-                  onChange={handleInputChange} 
-                  placeholder="Password" 
+                  onChange={ handleInputChange }
+                  placeholder="Password"
                   id="pwd"
-                   name="password" 
-                   required />
+                  name="password"
+                  required />
               </div>
 
               <button className="log-in button_login"> Log In </button>
             </div>
             <div className="other">
-              <button className="btn submits frgt-pass button_login">Forgot Password</button>
-              <button className="btn submits sign-up button_login">Sign Up
+              <button className="btn submits frgt-pass button_login">
+                <Link className=' text-dark link-underline link-underline-opacity-0' to={`/forgetpassword`}>
+                Forgot Password
+                </Link>
+                </button>
+              <button className="btn submits sign-up button_login">
+                <Link className=' text-dark link-underline link-underline-opacity-0' to={`/registration`}>
+                Sign Up
+              </Link>
                 <i className="fa fa-user-plus" aria-hidden="true"></i>
               </button>
             </div>
           </div>
         </form>
-        { error && (
-          <div className="alert alert-danger mb-3">
-            { error }
-          </div>
-        ) }
+
       </div>
     </div>
 

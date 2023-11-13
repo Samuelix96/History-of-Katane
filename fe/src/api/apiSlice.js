@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 import { Search } from "react-bootstrap-icons"
+import Registration from "../pages/Registration"
 
 
 export const apiSlice = createApi({
@@ -186,6 +187,46 @@ export const apiSlice = createApi({
         }),
         
 
+        //api Registration 
+        addRegistration: builder.mutation({
+            query: (registration) => ({
+                url: `/registration`,
+                method: 'POST',
+                body: registration,
+                headers: {
+                    "Content-Type" : "application/json"
+                },
+            }),
+            invalidatesTags: ['Registration'],
+        }),
+
+
+        //* ResetPassword
+        addForgetPassword : builder.mutation({
+            query: (forget) => ({
+                url: `/forgetpassword`,
+                method: 'POST',
+                body: forget,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                invalidatesTags: ['ForgetPassword'],
+            }),
+        }),
+
+
+        addResetPassword : builder.mutation({
+            query: (reset) => ({
+                url: `/resetpassword`,
+                method: 'POST',
+                body: reset,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                invalidatesTags: ['ResetPassword'],
+            }),
+        }),
+
     })
 })
 
@@ -233,5 +274,12 @@ export const {
     usePatchSupportMutation,
     useDeleteSupportMutation,
     
+    //* Api per la registration 
+    useAddRegistrationMutation,
+
+    //* Api ForgetPassword
+    useAddForgetPasswordMutation,
     
+    // Api ResetPassword
+    useAddResetPasswordMutation,
 } = apiSlice
