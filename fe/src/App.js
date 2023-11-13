@@ -4,6 +4,7 @@ import ProtectedRoutes from './middlewares/ProtectedRoutes'
 import AncientKatane from './pages/AncientKatane'
 import Armor from './pages/Armor'
 import CartShop from './pages/CartShop'
+import CheckoutSuccess from './pages/CheckoutSuccess'
 import Contact from './pages/Contact'
 import DetailArmor from './pages/DetailArmor'
 import DetailHelmet from './pages/DetailHelmet'
@@ -56,6 +57,8 @@ const App = () =>
             <Route path='/cartshop' element={ <CartShop /> } />
             <Route path='/wishList' element={ <Wish /> } />
             <Route path='/profile/:sessionid' element={ <User /> } />
+            <Route path='/checkoutsuccess' element={ <CheckoutSuccess /> } />
+
             
 
 

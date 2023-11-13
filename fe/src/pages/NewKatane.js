@@ -355,6 +355,8 @@ const NewKatane = () =>
                     title={item.title}
                     price={item.price}
                     category={item.category}
+                    description={item.description}
+                    image2={item.image2}
                     img={item.img}
                     id={item._id}
                   />
@@ -365,8 +367,10 @@ const NewKatane = () =>
                     key={nanoid()}
                     title={item.title}
                     price={item.price}
+                    description={item.description}
                     category={item.category}
                     img={item.img}
+                    image2={item.image2}
                     id={item._id}
                   />
                 ))

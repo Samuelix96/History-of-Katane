@@ -14,6 +14,7 @@ const postsRoute = require("./Routes/posts")
 const registrationRoute = require("./Routes/registration")
 const forgetRoute = require("./Routes/forget")
 const resetRoute = require("./Routes/reset")
+const stripeRoute = require("./Routes/stripe")
 
 
 const app = express();
@@ -32,6 +33,7 @@ app.use('/', katanasRoute)
 app.use('/', registrationRoute)
 app.use('/', forgetRoute)
 app.use('/', resetRoute)
+app.use('/', stripeRoute)
 
 
 

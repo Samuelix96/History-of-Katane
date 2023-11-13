@@ -227,6 +227,17 @@ export const apiSlice = createApi({
             }),
         }),
 
+
+        // api for Stripe
+        addSripe: builder.mutation({
+            query: (stripe) => ({
+                url: `/create-checkout-session`,
+                method: 'POST',
+                body: stripe,
+            }),
+            invalidatesTags: ['Stripe'],
+        }),
+
     })
 })
 
@@ -282,4 +293,8 @@ export const {
     
     // Api ResetPassword
     useAddResetPasswordMutation,
+
+    // Api Stripe
+    useAddSripeMutation,
+    
 } = apiSlice

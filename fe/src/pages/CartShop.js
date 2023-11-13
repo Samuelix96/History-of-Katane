@@ -1,5 +1,5 @@
 import { nanoid } from '@reduxjs/toolkit'
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Container, Col, Row, Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,16 +11,22 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAddSripeMutation } from '../api/apiSlice'
+import { useSession } from '../hooks/AuthSession'
 
 
 const CartShop = () =>
 {
+  const session = useSession();
   const dispatch = useDispatch()
   const totalAmount = useSelector(amount)
   console.log( "Total", totalAmount)
   const totalItems = useSelector(total)
   const productsCart = useSelector(buyProducts)
   const tax = useSelector(iva)
+  const [error, setError] = useState(null)
+
+  const [addStripe] = useAddSripeMutation();
 
   console.log(totalAmount)
   console.log(tax)
@@ -41,6 +47,22 @@ const CartShop = () =>
     }
   };
 
+
+  const handleCheckout = async() => {
+    try{
+      const response = await addStripe({productsCart, userdId: session?.id })
+
+      if(response.data){
+        window.location.href = response.data.url
+      } else{
+        setError("Error intern redirect")
+      }
+    } catch (error) {
+      console.log(error)
+      setError("Error internal fetch rtk query ")
+    }
+    
+  }
   
 
   
@@ -115,7 +137,7 @@ const CartShop = () =>
                     </Col>
                   </Row>
                   <div className="text-center pt-3">
-                    <Button variant="primary" className="w-100" >Go To Checkout</Button>
+                    <Button onClick={handleCheckout} variant="primary" className="w-100" >Go To Checkout</Button>
                   </div>
                 </Card.Body>
               </Card>

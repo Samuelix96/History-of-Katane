@@ -64,7 +64,7 @@ Content-Type: application/json
 
 {
     "category": "new",
-    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2017/05/mzt06_01-1320x1376.jpg",
+    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2020/04/mzt_10_01-scaled.jpg",
     "image2": "https://katana-giapponese.it/cdn/shop/products/IMG_8875_20220603-145352_1100x.jpg?v=1669984555",
     "image3": "https://katana-giapponese.it/cdn/shop/products/IMG_8876_20220603-145355_1100x.jpg?v=1669984555",
     "image4": "https://katana-giapponese.it/cdn/shop/products/IMG_8879_20220603-145405_1100x.jpg?v=1669984555",
@@ -76,7 +76,7 @@ Content-Type: application/json
     "price": 3200,
     "length": 52,
     "description": "Legno di ebano laccato e corno di toro Kurigata, Pelle bianca stingray",
-    "title": "Wakizashi Ao "
+    "title": "SAMUELE "
 }
 
 ####
