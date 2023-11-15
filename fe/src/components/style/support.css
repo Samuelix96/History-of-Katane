@@ -1,7 +1,7 @@
 /** @format */
 
-.sfondo-armor {
-  background: url(https://i.pinimg.com/736x/0e/61/84/0e6184d8b66714239dbfc8b99779cb8f.jpg)
+.sfondo-support {
+  background: url(https://cdnb.artstation.com/p/assets/images/images/031/752/791/large/diana-spaka-ps-render-03.jpg?1604501473)
     no-repeat center;
   background-size: cover;
   margin: 0;
@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
 }
-.sfondo-armor h1 {
+.sfondo-support h1 {
   font-family: fantasy;
   border: 2px solid;
   padding: 2rem;

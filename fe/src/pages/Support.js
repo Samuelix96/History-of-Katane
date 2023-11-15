@@ -1,9 +1,15 @@
-import React, { useState } from 'react'
-import { motion } from "framer-motion";
+/** @format */
+
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Col, Container, Row } from 'react-bootstrap';
 import { nanoid } from 'nanoid';
-import { useGetSupportQuery, useGetSupportByTitleQuery, useAddSupportMutation } from '../api/apiSlice';
-import MainLayout from '../layout/MainLayout'
+import {
+  useGetSupportQuery,
+  useGetSupportByTitleQuery,
+  useAddSupportMutation,
+} from '../api/apiSlice';
+import MainLayout from '../layout/MainLayout';
 import SingleSupport from '../components/support/SingleSupport';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css';
@@ -11,19 +17,15 @@ import { useSession } from '../hooks/AuthSession';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import '../components/style/support.css';
 
-
-
-const Support = () =>
-{
-
-
-  const session = useSession()
-  const [ searchTerm, setSearchTerm ] = useState("")
-  const [ currentPage, setCurrentPage ] = useState(1);
-  const [ show, setShow ] = useState(false);
-  const [ formData, setFormData ] = useState({})
-  const [ imgFilesData, setImgFilesData ] = useState({
+const Support = () => {
+  const session = useSession();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [show, setShow] = useState(false);
+  const [formData, setFormData] = useState({});
+  const [imgFilesData, setImgFilesData] = useState({
     img: null,
     image2: null,
     image3: null,
@@ -31,74 +33,63 @@ const Support = () =>
     image5: null,
   });
 
-  console.log(imgFilesData)
-  console.log(formData)
-
+  console.log(imgFilesData);
+  console.log(formData);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [ addStand, { ilLoading } ] = useAddSupportMutation()
+  const [addStand, { ilLoading }] = useAddSupportMutation();
 
-  const handleInputChange = (e) =>
-  {
+  const handleInputChange = e => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [ name ]: value,
-    })
-  }
+      [name]: value,
+    });
+  };
 
-  const handleFileChange = (event, key) =>
-  {
-    const file = event.target.files[ 0 ]; // Assumendo che stai permettendo la selezione di un solo file
+  const handleFileChange = (event, key) => {
+    const file = event.target.files[0]; // Assumendo che stai permettendo la selezione di un solo file
 
     // Aggiorna lo stato con il nuovo file selezionato
     setImgFilesData(prevState => ({
       ...prevState,
-      [ key ]: file,
+      [key]: file,
     }));
   };
 
-
-
-  const uploadToCloudinary = async (img, image2, image3, image4, image5) =>
-  {
+  const uploadToCloudinary = async (img, image2, image3, image4, image5) => {
     const filesData = new FormData();
-    console.log(filesData)
+    console.log(filesData);
     filesData.append('img', imgFilesData.img);
     filesData.append('image2', imgFilesData.image2);
     filesData.append('image3', imgFilesData.image3);
     filesData.append('image4', imgFilesData.image4);
     filesData.append('image5', imgFilesData.image5);
 
-    try
-    {
-      const response = await fetch(`${ process.env.REACT_APP_SERVER_URL }/stands/cloudUpload`, {
-        method: 'POST',
-        body: filesData
-      });
-      if (response.status === 200)
-      {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER_URL}/stands/cloudUpload`,
+        {
+          method: 'POST',
+          body: filesData,
+        }
+      );
+      if (response.status === 200) {
         return response.json();
-      } else
-      {
+      } else {
         throw new Error('Errore nella chiamata post del file con cloudinary');
       }
-    } catch (error)
-    {
+    } catch (error) {
       console.error('Errore durante il caricamento su Cloudinary:', error);
     }
   };
 
-
-  const sendPost = async (e) =>
-  {
+  const sendPost = async e => {
     e.preventDefault();
-    if (Object.values(imgFilesData).every(file => file !== null))
-    {
-      try
-      {
+    if (Object.values(imgFilesData).every(file => file !== null)) {
+      try {
         const uploadImages = await uploadToCloudinary();
         const finalBody = {
           ...formData,
@@ -117,247 +108,266 @@ const Support = () =>
           image4: null,
           image5: null,
         });
-        setTimeout(() =>
-        {
+        setTimeout(() => {
           handleClose();
         }, 1000);
-      } catch (error)
-      {
+      } catch (error) {
         console.log("errore nell'invio del post", error);
       }
-    } else
-    {
-      console.log('Alcuni file sono mancanti. Assicurati di caricare tutti i file richiesti.');
+    } else {
+      console.log(
+        'Alcuni file sono mancanti. Assicurati di caricare tutti i file richiesti.'
+      );
     }
   };
 
-
-
-
-
-
-
-
-
-  const handlePageChange = (value) =>
-  {
-    setCurrentPage(value)
-  }
-
+  const handlePageChange = value => {
+    setCurrentPage(value);
+  };
 
   const {
     data: supportByTitle = [],
     isLoading: isSearchLoading,
     isSuccess: isSearchSuccess,
-    isError: isSearchError
-  } = useGetSupportByTitleQuery(searchTerm)
-
-
+    isError: isSearchError,
+  } = useGetSupportByTitleQuery(searchTerm);
 
   const {
     data: supports = [],
     isLoading: isPostLoading,
     isSuccess: isPostSuccess,
     isError: IsPostError,
+  } = useGetSupportQuery(currentPage);
 
-  } = useGetSupportQuery(currentPage)
-
-  const supportToDisplay = searchTerm ? supportByTitle?.standetto : supports?.stand || [];
-
+  const supportToDisplay = searchTerm
+    ? supportByTitle?.standetto
+    : supports?.stand || [];
 
   return (
     <MainLayout>
       <motion.div
-        initial={ { width: 0 } }
-        animate={ { width: "100%" } }
-        exit={ { width: 0 } }
-      >
-
-        <div className=" my-3 bg-body-secondary p-4 rounded-4 m-3 ">
-          <h1 className='text-center'>Support </h1>
+        initial={{ width: 0 }}
+        animate={{ width: '100%' }}
+        exit={{ width: 0 }}>
+        <div className='sfondo-support content'>
+          <h1 className='h1-new'>
+            <span class='right'>Support</span>
+          </h1>
         </div>
-
 
         <Container fluid>
           <div className='my-4 d-flex justify-content-end'>
             <input
-              type="text"
-              placeholder="Search by title"
-              value={ searchTerm }
-              onChange={ e => setSearchTerm(e.target.value) }
+              type='text'
+              placeholder='Search by title'
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
             />
           </div>
 
           <div>
-            { session.role === "admin" ? (
+            {session.role === 'admin' ? (
               <>
-
-                <Button variant="primary" className="my-3" onClick={ handleShow }>
+                <Button
+                  variant='primary'
+                  className='my-3'
+                  onClick={handleShow}>
                   Launch demo modal
                 </Button>
 
-                <Modal show={ show } onHide={ handleClose }>
+                <Modal
+                  show={show}
+                  onHide={handleClose}>
                   <Modal.Header closeButton>
                     <Modal.Title>Armor Build Post</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <Form encType='multipart/form-data' onSubmit={ sendPost }>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form
+                      encType='multipart/form-data'
+                      onSubmit={sendPost}>
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>Img</Form.Label>
                         <Form.Control
-                          type="file"
+                          type='file'
                           required
-                          name="img"
-                          onChange={ (e) => handleFileChange(e, 'img') }
+                          name='img'
+                          onChange={e => handleFileChange(e, 'img')}
                           autoFocus
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>Image2</Form.Label>
                         <Form.Control
-                          type="file"
-                          name="image2"
-                          onChange={ (e) => handleFileChange(e, 'image2') }
+                          type='file'
+                          name='image2'
+                          onChange={e => handleFileChange(e, 'image2')}
                           required
                           autoFocus
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>Image3</Form.Label>
                         <Form.Control
-                          type="file"
+                          type='file'
                           required
-                          onChange={ (e) => handleFileChange(e, 'image3') }
-                          name="image3"
+                          onChange={e => handleFileChange(e, 'image3')}
+                          name='image3'
                           autoFocus
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>Image4</Form.Label>
                         <Form.Control
-                          type="file"
+                          type='file'
                           required
-                          onChange={ (e) => handleFileChange(e, 'image4') }
-                          name="image4"
+                          onChange={e => handleFileChange(e, 'image4')}
+                          name='image4'
                           autoFocus
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>Image5</Form.Label>
                         <Form.Control
-                          type="file"
+                          type='file'
                           required
-                          onChange={ (e) => handleFileChange(e, 'image5') }
-                          name="image5"
+                          onChange={e => handleFileChange(e, 'image5')}
+                          name='image5'
                           autoFocus
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>Description</Form.Label>
                         <Form.Control
-                          type="text"
-                          name="description"
-                          placeholder="description"
+                          type='text'
+                          name='description'
+                          placeholder='description'
                           autoFocus
-                          onChange={ handleInputChange }
+                          onChange={handleInputChange}
                           required
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>Price</Form.Label>
                         <Form.Control
-                          type="number"
-                          name="price"
-                          placeholder="price"
-                          onChange={ handleInputChange }
+                          type='number'
+                          name='price'
+                          placeholder='price'
+                          onChange={handleInputChange}
                           autoFocus
                           required
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>Title</Form.Label>
                         <Form.Control
-                          type="text"
+                          type='text'
                           name='title'
-                          placeholder="title"
+                          placeholder='title'
                           autoFocus
-                          onChange={ handleInputChange }
+                          onChange={handleInputChange}
                           required
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>Type</Form.Label>
                         <Form.Control
-                          type="text"
-                          placeholder="type"
-                          name="type"
+                          type='text'
+                          placeholder='type'
+                          name='type'
                           autoFocus
-                          onChange={ handleInputChange }
+                          onChange={handleInputChange}
                           required
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>material</Form.Label>
                         <Form.Control
-                          type="text"
-                          name="material"
-                          placeholder="material"
+                          type='text'
+                          name='material'
+                          placeholder='material'
                           autoFocus
-                          onChange={ handleInputChange }
+                          onChange={handleInputChange}
                           required
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlInput1'>
                         <Form.Label>subtitle</Form.Label>
                         <Form.Control
-                          type="text"
-                          name="subtitle"
-                          onChange={ handleInputChange }
-                          placeholder="subtitle"
+                          type='text'
+                          name='subtitle'
+                          onChange={handleInputChange}
+                          placeholder='subtitle'
                           autoFocus
                         />
                       </Form.Group>
 
-                      <Button type='submit' variant="secondary" >
+                      <Button
+                        type='submit'
+                        variant='secondary'>
                         Close
                       </Button>
                     </Form>
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={ handleClose }>
+                    <Button
+                      variant='secondary'
+                      onClick={handleClose}>
                       Close
                     </Button>
-                    <Button variant="primary" onClick={ handleClose }>
+                    <Button
+                      variant='primary'
+                      onClick={handleClose}>
                       Save Changes
                     </Button>
                   </Modal.Footer>
                 </Modal>
               </>
-            ) : null }
-
+            ) : null}
           </div>
           <Row>
             <Col className='d-flex gap-3 justify-content-between flex-wrap'>
-              { searchTerm && isSearchSuccess ? (
+              {searchTerm && isSearchSuccess ? (
                 supportToDisplay?.map(item => (
                   <SingleSupport
-                    key={ nanoid() }
-                    title={ item.title }
-                    price={ item.price }
-                    category={ item.category }
-                    img={ item.img }
-                    id={ item._id }
+                    key={nanoid()}
+                    title={item.title}
+                    price={item.price}
+                    category={item.category}
+                    img={item.img}
+                    id={item._id}
                   />
                 ))
               ) : isPostSuccess ? (
                 supports?.stand.map(item => (
                   <SingleSupport
-                    key={ nanoid() }
-                    title={ item.title }
-                    price={ item.price }
-                    category={ item.category }
-                    img={ item.img }
-                    id={ item._id }
+                    key={nanoid()}
+                    title={item.title}
+                    price={item.price}
+                    category={item.category}
+                    img={item.img}
+                    id={item._id}
                   />
                 ))
               ) : IsPostError ? (
@@ -366,21 +376,19 @@ const Support = () =>
                 <p>Error fetching search results</p>
               ) : (
                 <p>Loading...</p>
-              ) }
+              )}
             </Col>
           </Row>
         </Container>
         <ResponsivePagination
           extraClassName='my-5 justify-content-center'
-          current={ currentPage }
-          total={ supports && supports.totalPages }
-          onPageChange={ handlePageChange }
+          current={currentPage}
+          total={supports && supports.totalPages}
+          onPageChange={handlePageChange}
         />
-
       </motion.div>
-
     </MainLayout>
-  )
-}
+  );
+};
 
-export default Support
+export default Support;

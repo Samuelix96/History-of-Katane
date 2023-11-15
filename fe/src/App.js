@@ -16,6 +16,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Museum from './pages/Museum'
 import NewKatane from './pages/NewKatane'
+import PageNotFound from './pages/PageNotFound'
 import Registration from './pages/Registration'
 import Reset from './pages/Reset'
 import Support from './pages/Support'
@@ -39,6 +40,8 @@ const App = () =>
           <Route path='/registration' element={ <Registration /> } />
           <Route path='/forgetpassword' element={ <ForgetPassword /> } />
           <Route path='/resetpassword/:resetoken' element={ <Reset /> } />
+          <Route path= '*' element={ <PageNotFound /> } />
+
 
               {/* //? ROTTE PROTETTE  // */}
           <Route element={ <ProtectedRoutes /> }>
