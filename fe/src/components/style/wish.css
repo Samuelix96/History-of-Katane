@@ -1,0 +1,19 @@
+/** @format */
+
+.sfondo-wish {
+  background: url(https://fromjapan.info/cms/wp-content/uploads/2021/09/daruma-family-lucky-doll-good-luck.jpg)
+    no-repeat center;
+  background-size: cover;
+  margin: 0;
+  padding: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sfondo-wish h1 {
+  font-family: fantasy;
+  border: 2px solid;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.53);
+  color: white;
+}

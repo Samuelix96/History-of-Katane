@@ -394,6 +394,8 @@ const NewKatane = () => {
                     image2={item.image2}
                     img={item.img}
                     id={item._id}
+                    location={item.location}
+                    subtitle={item.subtitle}
                   />
                 ))
               ) : isPostSuccess ? (
@@ -407,6 +409,8 @@ const NewKatane = () => {
                     img={item.img}
                     image2={item.image2}
                     id={item._id}
+                    location={item.location}
+                    subtitle={item.subtitle}
                   />
                 ))
               ) : IsPostError ? (

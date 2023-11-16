@@ -1,13 +1,23 @@
-.back-jumbo{
-    
-    
-    background-size: cover;
-    background: url(https://img.freepik.com/free-vector/hand-painted-japanese-styled-watercolour-landscape-background_1048-19239.jpg?w=1380&t=st=1699458031~exp=1699458631~hmac=2e0239e5f3e5de9fa352ec9ef9d3d0f39ecd95b816b49f6a5f9d72d4eb4fa5e2) no-repeat center center fixed;
-    height: 450px;
+/** @format */
+
+.back-jumbo {
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://img.freepik.com/free-vector/set-famous-landmark-vectors_53876-62689.jpg?w=1800&t=st=1700082432~exp=1700083032~hmac=eb39d4deabe82a41814075c04a52cd23d1e6dbb1fd14221b3964d3c59f9e7811);
+  height: 430px;
 }
 .back-jumbo :where(h1) {
-    font-size: 3rem;
-    margin-bottom: 2.5rem;
-    
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  border: 2px solid;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.354);
+  color: white;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }

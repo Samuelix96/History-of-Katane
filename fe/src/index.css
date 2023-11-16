@@ -1,22 +1,22 @@
+/** @format */
+
 body {
   /* background: 
   linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), 
   url('http://thecodeplayer.com/uploads/media/gs.png');
  */
- background: rgb(42, 41, 43);
- 
- background-color: rgb(81, 80, 80);
+  background: rgb(42, 41, 43);
 
- background-repeat: repeat-x;
- background-position: top center;
- height: 320px;
+  background-color: rgb(46, 45, 45);
+
+  background-repeat: repeat-x;
+  background-position: top center;
+  height: 320px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-    
-  
 }
 
 /* h1 {
@@ -28,6 +28,3 @@ code {
                0px 24px 2px rgba(0,0,0,0.1),
                0px 34px 30px rgba(0,0,0,0.1);
 } */
-
-
-

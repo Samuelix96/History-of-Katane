@@ -4,14 +4,18 @@ POST http://localhost:5050/armors/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05874-scaled.jpg",
-    "description": "Con gli ampi sode (spallacci) e la costruzione all'antica, questa armatura richiama lo stile delle armature medievali popolari nel periodo Edo. La moda delle armature in stile antico si affermò quando l'ottavo shogun Tokugawa Ieyoshi (1684-1750) promosse un revival degli armamenti tradizionali, tra cui spade e armature, per rivitalizzare quello che riteneva un declino dello spirito marziale della nazione La corazza è realizzata con centinaia di piccole piastre unite tra loro. Questo sistema, noto come hon-kozane, è un metodo complesso e costoso, ma efficace per allacciare insieme numerose piastre di piccole dimensioni; fu utilizzato fino al XVI secolo e poi recuperato durante il periodo Edo per le armature in stile destinate ai samurai di alto rango.",
-    "price": 555,
-    "title": "reeenjii",
-    "helmet": "Kabuto in ferro (tetsu sabiji) a sessantadue piastre, ciascuna montata con venticinque piccoli rivetti rastremati (ko-boshi) di dimensione decrescente; la piastra anteriore, più grande delle altre, è dotata di due linee di rivetti, mentre quella posteriore è lasciata vuota, per un totale di 1.550 rivetti.",
-    "mask": "Maschera di tipo ressei-men (maschera dall'espressione feroce) in ferro (tetsu sabiji).",
-    "armor": "Ni-mai do ( realizzata in due parti) con costruzione hon-kozane (piastrine individuali). Placche di pelle impressa con bordi in shakudo incisi, raffinati kanamono con hanabishi sono ripetuti su altre parti dell'armatura.",
-    "sleeves": "In ferro, con un hanabishi sul dorso della mano (tekko)"
+    "img": "",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "description": "",
+    "price": ,
+    "title": "",
+    "helmet": "",
+    "mask": "",
+    "armor": "",
+    "sleeves": ""
 }
 
 ####
@@ -36,10 +40,14 @@ POST http://localhost:5050/helmets/create HTTP/1.1
 Content-Type: application/json
 
 {
+    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
+    "image2": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
+    "image3": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
+    "image4": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
+    "image5": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
     "title": "seeesss",
     "price": 364493,
     "description": " Before the Kawari Kabuto’s production, the Suji Kabuto (筋兜) has appeared during the Nanbokuchou (南北朝, 1337-1392) period. At that time, the tactic was gradually changed from the piggyback fight style to battle with the Tachi (太刀) sword and the Naginata (薙刀, Japanese halberd) on the ground. Therefore, there was a rise in demand for the weight saving of the Kabuto. Also, in order to turn the attack by swords, a new type of structure was invented; it is the Suji Kabuto (筋兜). Its form slides swords’ attacks when weapons hit the Kabuto. It is said that the production of the Suji Kabuto prospered in the Muromachi (室町, 1336-1573) period.",
-    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
     "height" : 26,
     "weight": 2.7,
     "subtitle": " Suji Kabuto consists of many small riveted iron plates to form its shape. This helmet has Sanjyuni (thirty two  in Japanese) iron plates. Suji means a stripe in Japanese, and you can see 32 stripes in this helmet. A high-class Samurai might have owned this helmet."
@@ -109,13 +117,18 @@ POST http://localhost:5050/stands/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "susanoo  ",
-    "price": 44.00,
-    "subtitle": "1-layer Rack Base Black Lacquered Wood With Red Felt",
-    "description": "Black lacquer finish, which makes this display look nice with your samurai swords such as katana.",
-    "img": "https://d3524jlyu2md0e.cloudfront.net/88/16329338397268.webp",
-    "material": "Good quality, all black, solid wood frame, easy to assemble.",
-    "type": "Single horizontal wood sword display stand."
+    
+    "img": "https://d3524jlyu2md0e.cloudfront.net/20/16172396397267.webp",
+    "image2": "https://d3524jlyu2md0e.cloudfront.net/a9/16172396544468.webp",
+    "image3": "https://d3524jlyu2md0e.cloudfront.net/93/16172396693605.webp",
+    "image4": "https://d3524jlyu2md0e.cloudfront.net/0d/16172396838183.webp",
+    "image5": "https://d3524jlyu2md0e.cloudfront.net/b1/16172396981976.webp",
+    "title": "Handmade Natural Bamboo Wooden Double Tier ",
+    "price": 49.00,
+    "subtitle": "Katana Sword Bracket Stand Holder Display Rack Stand",
+    "description": "Shows off your samurai sword collection without distracting from their artistry.",
+    "material": "Good quality, bamboo wood frame, easy to assemble.",
+    "type": "2 layer sword stand"
 }
 
 ####
@@ -125,10 +138,23 @@ GET http://localhost:5050/stands HTTP/1.1
 GET http://localhost:5050/stands/bytitle?title=su
 
 ####
-DELETE http://localhost:5050/stands/delete/65443fd80d12430b9d7f1872 HTTP/1.1
+
+GET http://localhost:5050/stands/65553cb8fbe0eeebe14d1ed2
 
 ####
 
+
+####
+DELETE http://localhost:5050/stands/delete/65553cb8fbe0eeebe14d1ed2 HTTP/1.1
+
+####
+
+PATCH http://localhost:5050/stands/update/65554248fbe0eeebe14d1ee5 
+Content-Type: application/json
+
+{
+    "title":"Handmade Wooden Triple Tier Katana Stand "
+}
 
 
 

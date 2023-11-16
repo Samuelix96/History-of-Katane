@@ -9,7 +9,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { addCart } from '../../reducers/CartSlice';
 import './wish.css';
 
-const SingleWishList = ({ img, id, title, price, subtitle, description }) => {
+const SingleWishList = ({
+  img,
+  location,
+  id,
+  title,
+  price,
+  subtitle,
+  description,
+}) => {
   console.log('ID IN SINGLEWISh', id);
 
   const dispatch = useDispatch();
@@ -19,74 +27,69 @@ const SingleWishList = ({ img, id, title, price, subtitle, description }) => {
   };
 
   const handleMoveCart = () => {
-    dispatch(addCart({ id: id, img, title, price, subtitle }));
+    dispatch(
+      addCart({ id: id, img, title, price, location, description, subtitle })
+    );
 
     dispatch(removeWish(id));
   };
 
   return (
-    <div class='container mt-5 mb-5'>
-      <div class='d-flex justify-content-center row'>
-        <div class='col-md-10'>
-          <div class='row p-2 bg-white border rounded'>
-            <div class='col-md-3 mt-1'>
+    <div className='container mt-5 mb-5'>
+      <div className='d-flex justify-content-center row'>
+        <div className='col-md-10'>
+          <div className='row p-2 bg-white border rounded'>
+            <div className='col-md-3 mt-1'>
               <img
-                class='img-fluid img-responsive rounded product-image'
+                className='img-fluid img-responsive rounded product-image'
                 src={img}
               />
             </div>
-            <div class='col-md-6 mt-1'>
+            <div className='col-md-6 mt-1'>
               <h5>{title}</h5>
-              <div class='d-flex flex-row'>
-                <div class='ratings mr-2'>
-                  <i class='fa fa-star'></i>
-                  <i class='fa fa-star'></i>
-                  <i class='fa fa-star'></i>
-                  <i class='fa fa-star'></i>
+              <div className='d-flex flex-row'>
+                <div className='ratings mr-2'>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
                 </div>
                 <span>310</span>
               </div>
-              <div class='mt-1 mb-1 spec-1'>
+              <div className='mt-1 mb-1 spec-1'>
                 <span>{subtitle}</span>
-                <span class='dot'></span>
-                <span>Light weight</span>
-                <span class='dot'></span>
+                <span className='dot'></span>
+                <span>{description}</span>
+                <span className='dot'></span>
                 <span>
-                  Best finish
+                  {location}
                   <br />
                 </span>
               </div>
-              <div class='mt-1 mb-1 spec-1'>
-                <span>Unique design</span>
-                <span class='dot'></span>
-                <span>For men</span>
-                <span class='dot'></span>
-                <span>
-                  Casual
-                  <br />
-                </span>
-              </div>
-              <p class='text-justify text-truncate para mb-0'>
+
+              <p className='text-justify text-truncate para mb-0'>
                 {description}
                 <br />
                 <br />
               </p>
             </div>
-            <div class='align-items-center align-content-center col-md-3 border-left mt-1'>
-              <div class='d-flex flex-row align-items-center'>
-                <h4 class='mr-1'>{price}</h4>
+            <div className='align-items-center align-content-center col-md-3 border-left mt-1'>
+              <div className='d-flex flex-row align-items-center'>
+                <h4 className='mr-1'>{price}$</h4>
               </div>
-              <h6 class='text-success'>Free shipping</h6>
-              <div class='d-flex flex-column mt-4'>
+              <h6 className='text-success'>Free shipping</h6>
+              <div className='d-flex flex-column mt-4'>
                 <button
-                  class='btn btn-primary btn-sm'
-                  type='button'>
-                  Details
-                </button>
-                <button
-                  class='btn btn-outline-primary btn-sm mt-2'
+                  onClick={handleMoveCart}
+                  className='btn btn-outline-primary btn-sm mt-2'
                   type='button'>
                   Move To Cart
+                </button>
+                <button
+                  onClick={handleRemoveWish}
+                  className='btn btn-outline-danger btn-sm mt-2'
+                  type='button'>
+                  Remove to Wishlist
                 </button>
               </div>
             </div>

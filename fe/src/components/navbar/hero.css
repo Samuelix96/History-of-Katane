@@ -1,14 +1,14 @@
-.hero__text 
- img {
-    height: 280px;
-    border-radius: 100%;
-    padding-block: 3px;
+/** @format */
+
+.hero__text img {
+  height: 280px;
+  border-radius: 100%;
+  padding-block: 3px;
 }
 .sector-hero {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-family: Papyrus, fantasy;
-    background-image: url(https://img.freepik.com/free-vector/watercolor-chinese-style-background_52683-96085.jpg?w=1380&t=st=1699457366~exp=1699457966~hmac=63c505da47c4ec633d3fa5415ee0f1287fac37dd5f8830a8d4aa6fa75c79164b);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: Papyrus, fantasy;
+  background-image: url(https://img.freepik.com/free-vector/watercolor-chinese-style-background_52683-96085.jpg?w=1380&t=st=1700078856~exp=1700079456~hmac=3a07c7cefb54d2b0ebf82378987abc52c3fbfc372f88900543529ffd4c0d54f5);
 }
-
