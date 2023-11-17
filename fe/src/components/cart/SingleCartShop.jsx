@@ -27,7 +27,7 @@ const SingleCartShop = ({img, title, description, price}) => {
                 {/* <button className="bg-transparent border" onClick={}>+</button> */}
             </div>
             <div className="mt-auto ml-auto">
-                <strong>${price}</strong>
+                <strong>${price.toFixed(2)}</strong>
             </div>
         </Col>
     </Row>

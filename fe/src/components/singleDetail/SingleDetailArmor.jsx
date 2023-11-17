@@ -93,7 +93,7 @@ const SingleDetailArmor = ({
                 <div className='_product-detail-content'>
                   <p className='_p-name'>
                     {' '}
-                    {price}$ - {title}{' '}
+                    {price.toFixed(2)}$ - {title}{' '}
                   </p>
                   <div className='_p-price-box'>
                     <div className='p-list'>

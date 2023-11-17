@@ -9,8 +9,10 @@ import {
   useGetKataneByTitleQuery,
   useAddKataneMutation,
 } from '../api/apiSlice';
+import Spinner from 'react-bootstrap/Spinner';
 import { Col, Container, Row } from 'react-bootstrap';
 import { nanoid } from 'nanoid';
+import '../components/style/spinner.css';
 
 import { useSession } from '../hooks/AuthSession';
 import Button from 'react-bootstrap/Button';
@@ -390,6 +392,7 @@ const AncientKatane = () => {
                     category={item.category}
                     img={item.img}
                     id={item._id}
+                    image2={item.image2}
                   />
                 ))
               ) : isPostSuccess ? (
@@ -401,6 +404,7 @@ const AncientKatane = () => {
                     category={item.category}
                     img={item.img}
                     id={item._id}
+                    image2={item.image2}
                   />
                 ))
               ) : IsPostError ? (
@@ -408,7 +412,9 @@ const AncientKatane = () => {
               ) : isSearchError ? (
                 <p>Error fetching search results</p>
               ) : (
-                <p>Loading...</p>
+                <p className='d-flex justify-content-center text-light fs-3'>
+                  ...Loading
+                </p>
               )}
             </Col>
           </Row>

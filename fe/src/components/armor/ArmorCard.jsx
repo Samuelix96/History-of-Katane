@@ -13,8 +13,11 @@ import Card from 'react-bootstrap/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { addWish } from '../../reducers/WishSlice';
 import { useDeleteArmorMutation } from '../../api/apiSlice';
-import { Cart, Heart, Search } from 'react-bootstrap-icons';
+import { Cart, DeviceHddFill, Heart, Search } from 'react-bootstrap-icons';
 import { useSession } from '../../hooks/AuthSession';
+import './armorcard.css';
+import { ToastContainer, toast } from 'react-toastify';
+
 const ArmorCard = ({
   img,
   id,
@@ -32,10 +35,12 @@ const ArmorCard = ({
 
   const handleAddCart = () => {
     dispatch(addCart({ id: id, price, img, title, description }));
+    toast.success('Added to Cart successfuly');
   };
 
   const handleWish = () => {
     dispatch(addWish({ id: id, img, price, title, description }));
+    toast.info('Added to Wish successfuly');
   };
 
   const [deleteArmor] = useDeleteArmorMutation();
@@ -53,14 +58,15 @@ const ArmorCard = ({
   return (
     <div>
       <Card
-        className=' bg-success-subtle'
+        className='text-light'
         style={{ width: '18rem' }}>
         <Card.Img
+          className='armor-card'
           variant='top'
           src={img}
           alt={title}
         />
-        <Card.Body>
+        <Card.Body className='cards-color'>
           <a
             className=' bg-c-lite-green p-2 rounded-2 text-light link-underline link-underline-opacity-0 link-dark'
             href={`/detailarmor/${id}`}>
@@ -73,9 +79,9 @@ const ArmorCard = ({
             style={{ width: '265px' }}>
             {helmet}
           </Card.Text>
-          <Card.Text>{price}$</Card.Text>
+          <Card.Text>{price.toFixed(2)}$</Card.Text>
           <Card.Text className=' d-none'>{id}</Card.Text>
-          <CardFooter>
+          <div className='my-2'>
             <button
               onClick={handleAddCart}
               type='button'
@@ -83,8 +89,8 @@ const ArmorCard = ({
               <Cart />
               Add to Cart
             </button>
-          </CardFooter>
-          <CardFooter>
+          </div>
+          <div>
             <button
               onClick={handleWish}
               type='button'
@@ -92,7 +98,7 @@ const ArmorCard = ({
               <Heart />
               Add to Wish
             </button>
-          </CardFooter>
+          </div>
 
           {session?.role === 'admin' ? (
             <Button
@@ -103,6 +109,7 @@ const ArmorCard = ({
           ) : null}
         </Card.Body>
       </Card>
+      <ToastContainer />
     </div>
   );
 };

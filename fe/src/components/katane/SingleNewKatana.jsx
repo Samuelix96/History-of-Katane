@@ -133,11 +133,8 @@ const SingleNewKatana = ({
                 <a href='#'>
                   {title} / {category}
                 </a>
-                <a href='#'>
-                  {title} / {subtitle}
-                </a>
               </h3>
-              <div className='price me-2'>{price}$</div>
+              <div className='price me-2'>{price.toFixed(2)}$</div>
             </div>
           </div>
         </div>

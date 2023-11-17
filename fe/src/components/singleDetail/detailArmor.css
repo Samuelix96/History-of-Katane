@@ -4,25 +4,23 @@
   background-color: #00000062;
   padding: 100px;
   border: 2px solid white;
-  background-image: linear-gradient(
-    to left top,
-    #d16ba5,
-    #c777b9,
-    #ba83ca,
-    #aa8fd8,
-    #9a9ae1,
-    #8aa7ec,
-    #79b3f4,
-    #69bff8,
-    #52cffe,
-    #41dfff,
-    #46eefa,
-    #5ffbf1
+  background: rgb(84, 77, 87);
+  background: linear-gradient(
+    354deg,
+    rgba(84, 77, 87, 1) 19%,
+    rgba(79, 73, 82, 1) 25%,
+    rgba(53, 51, 53, 1) 30%,
+    rgba(39, 40, 39, 0.9471988624551383) 31%,
+    rgba(40, 41, 40, 1) 39%,
+    rgba(59, 56, 60, 1) 42%,
+    rgba(65, 61, 67, 1) 56%,
+    rgba(90, 82, 94, 1) 64%,
+    rgba(52, 51, 53, 0.9836134282814688) 96%
   );
 }
 .box-detail h1 {
   padding: 3rem;
-  color: unset;
+  color: white;
   font-family: fantasy;
   border: 2px solid white;
 }
@@ -52,20 +50,18 @@
 }
 
 .section-bg {
-  background-image: linear-gradient(
-    to left top,
-    #d16ba5,
-    #c777b9,
-    #ba83ca,
-    #aa8fd8,
-    #9a9ae1,
-    #8aa7ec,
-    #79b3f4,
-    #69bff8,
-    #52cffe,
-    #41dfff,
-    #46eefa,
-    #5ffbf1
+  background: rgb(84, 77, 87);
+  background: linear-gradient(
+    354deg,
+    rgba(84, 77, 87, 1) 19%,
+    rgba(79, 73, 82, 1) 25%,
+    rgba(53, 51, 53, 1) 30%,
+    rgba(39, 40, 39, 0.9471988624551383) 31%,
+    rgba(40, 41, 40, 1) 39%,
+    rgba(59, 56, 60, 1) 42%,
+    rgba(65, 61, 67, 1) 56%,
+    rgba(90, 82, 94, 1) 64%,
+    rgba(52, 51, 53, 0.9836134282814688) 96%
   );
 }
 
@@ -296,7 +292,7 @@
   margin: 0px 10px;
 }
 .sq_box .price-box span.offer-price {
-  color: #28a745;
+  color: #6bc923;
 }
 .sq_box img {
   object-fit: cover;

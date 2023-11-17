@@ -22,7 +22,7 @@ const Museum = () => {
               <h2 className='text-center fst-italic'>
                 The story of master Musashi Miyamoto
               </h2>
-              <p class='leader'>Il lato spirituale del combattimento</p>
+              <p class='leader'>The spiritual side of combat</p>
               <div class='demo-card-wrapper'>
                 <div class='demo-card demo-card--step1'>
                   <div class='head'>

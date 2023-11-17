@@ -356,6 +356,7 @@ const Helmet = () => {
                       price={item.price}
                       category={item.category}
                       img={item.img}
+                      subtitle={item.subtitle}
                       id={item._id}
                     />
                   ))
@@ -367,6 +368,7 @@ const Helmet = () => {
                       price={item.price}
                       category={item.category}
                       img={item.img}
+                      subtitle={item.subtitle}
                       id={item._id}
                     />
                   ))

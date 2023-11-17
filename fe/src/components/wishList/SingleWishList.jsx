@@ -27,9 +27,7 @@ const SingleWishList = ({
   };
 
   const handleMoveCart = () => {
-    dispatch(
-      addCart({ id: id, img, title, price, location, description, subtitle })
-    );
+    dispatch(addCart({ id: id, img, title, price, description }));
 
     dispatch(removeWish(id));
   };
@@ -57,25 +55,13 @@ const SingleWishList = ({
                 <span>310</span>
               </div>
               <div className='mt-1 mb-1 spec-1'>
+                <span className='dot'></span>
                 <span>{subtitle}</span>
-                <span className='dot'></span>
-                <span>{description}</span>
-                <span className='dot'></span>
-                <span>
-                  {location}
-                  <br />
-                </span>
               </div>
-
-              <p className='text-justify text-truncate para mb-0'>
-                {description}
-                <br />
-                <br />
-              </p>
             </div>
             <div className='align-items-center align-content-center col-md-3 border-left mt-1'>
               <div className='d-flex flex-row align-items-center'>
-                <h4 className='mr-1'>{price}$</h4>
+                <h4 className='mr-1'>{price.toFixed(2)}$</h4>
               </div>
               <h6 className='text-success'>Free shipping</h6>
               <div className='d-flex flex-column mt-4'>

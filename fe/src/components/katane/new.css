@@ -1,20 +1,43 @@
-.product-grid{
-  background-color: rgb(225, 210, 210);
+/** @format */
+
+.product-grid {
+  background: rgb(84, 77, 87);
+  color: white;
+  background: linear-gradient(
+    354deg,
+    rgba(84, 77, 87, 1) 19%,
+    rgba(79, 73, 82, 1) 25%,
+    rgba(53, 51, 53, 1) 30%,
+    rgba(39, 40, 39, 0.9471988624551383) 31%,
+    rgba(40, 41, 40, 1) 39%,
+    rgba(59, 56, 60, 1) 42%,
+    rgba(65, 61, 67, 1) 56%,
+    rgba(90, 82, 94, 1) 64%,
+    rgba(52, 51, 53, 0.9836134282814688) 96%
+  );
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  width: 280px;
 }
-.product-grid .product-image{
+
+.product-grid .product-image {
   overflow: hidden;
   position: relative;
 }
-.product-grid .product-image a.image{ display: block; }
-.product-grid .product-image img{
-  width: 280px;
+.product-grid .product-image a.image {
+  display: block;
+}
+.product-grid .product-image img {
+  width: 260px;
   height: 302px;
 }
-.product-grid .product-image .pic-1{ transition: all 0.3s ease 0s; }
-.product-grid .product-image:hover .pic-1{ transform: translateX(100%); }
-.product-grid .product-image .pic-2{
+.product-grid .product-image .pic-1 {
+  transition: all 0.3s ease 0s;
+}
+.product-grid .product-image:hover .pic-1 {
+  transform: translateX(100%);
+}
+.product-grid .product-image .pic-2 {
   width: 100%;
   height: 100%;
   transform: translateX(-101%);
@@ -23,8 +46,10 @@
   left: 0;
   transition: all 0.3s ease 0s;
 }
-.product-grid .product-image:hover .pic-2{ transform: translateX(0); }
-.product-grid .product-sale-label{
+.product-grid .product-image:hover .pic-2 {
+  transform: translateX(0);
+}
+.product-grid .product-sale-label {
   color: #fff;
   background: #0a805e;
   font-size: 13px;
@@ -35,7 +60,7 @@
   top: 15px;
   left: 15px;
 }
-.product-grid .product-like-icon{
+.product-grid .product-like-icon {
   color: #c3b9b9;
   font-size: 22px;
   line-height: 20px;
@@ -43,9 +68,11 @@
   top: 15px;
   right: 15px;
 }
-.product-grid .product-like-icon:hover{ color: #0a805e; }
+.product-grid .product-like-icon:hover {
+  color: #0a805e;
+}
 .product-grid .product-like-icon:before,
-.product-grid .product-like-icon:after{
+.product-grid .product-like-icon:after {
   content: attr(data-tip);
   color: #fff;
   background-color: rgb(202, 182, 182);
@@ -58,7 +85,7 @@
   top: 15px;
   transition: all 0.3s ease 0s;
 }
-.product-grid .product-like-icon:after{
+.product-grid .product-like-icon:after {
   content: '';
   height: 15px;
   width: 15px;
@@ -70,11 +97,11 @@
   z-index: -1;
 }
 .product-grid .product-like-icon:hover:before,
-.product-grid .product-like-icon:hover:after{
+.product-grid .product-like-icon:hover:after {
   visibility: visible;
   top: 30px;
 }
-.product-grid .product-links{
+.product-grid .product-links {
   width: 170px;
   padding: 0;
   margin: 0;
@@ -86,15 +113,15 @@
   left: 50%;
   transition: all 0.3s ease 0s;
 }
-.product-grid:hover .product-links{
+.product-grid:hover .product-links {
   bottom: 40px;
   opacity: 1;
 }
-.product-grid .product-links li{
+.product-grid .product-links li {
   display: inline-block;
   margin: 0 2px;
 }
-.product-grid .product-links li .but-new{
+.product-grid .product-links li .but-new {
   color: #fff;
   background: rgb(182, 168, 168);
   font-size: 16px;
@@ -105,39 +132,47 @@
   display: block;
   transition: all 0.3s ease 0s;
 }
-.product-grid:hover .product-links li .but-new:hover{ background: #333; }
-.product-grid .product-content{
-  text-align: left;
-  padding: 15px 0 0;
+.product-grid:hover .product-links li .but-new:hover {
+  background: #333;
 }
-.product-grid .title{
+.product-grid .product-content {
+  text-align: left;
+  padding: 38px 0 0;
+}
+.product-grid .title {
   font-size: 14px;
   font-weight: 500;
   text-transform: capitalize;
   margin: 0 0 8px;
 }
-.product-grid .title a{
-  color: #333;
+.product-grid .title a {
+  color: #f5f0f0;
+  font-size: 13px;
+  letter-spacing: 1px;
   transition: all 0.3s ease 0s;
 }
-.product-grid .title .but-new:hover{ color: #0a805e; }
-.product-grid .price{
-  color: #0a805e;
+.product-grid .title .but-new:hover {
+  color: #80800a;
+}
+.product-grid .price {
+  color: #c8e90e;
   text-align: end;
   font-size: 16px;
   font-weight: 500;
 }
-.product-grid .price span{
+.product-grid .price span {
   color: rgb(202, 189, 189);
   font-size: 14px;
   font-weight: 400;
   text-decoration: line-through;
   margin: 0 5px 0 0;
 }
-@media screen and (max-width: 990px){
-  .product-grid{ margin: 0 0 30px; }
+@media screen and (max-width: 990px) {
+  .product-grid {
+    margin: 0 0 30px;
+  }
 }
 
-.but-new{
+.but-new {
   border-radius: 100%;
 }

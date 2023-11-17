@@ -1,9 +1,10 @@
 /** @format */
 
-.card-helmet {
-  width: 18rem;
+.armor-card {
+  width: 286px;
+  height: 370px;
 }
-.helmet-body {
+.cards-color {
   background: rgb(84, 77, 87);
   background: linear-gradient(
     41deg,

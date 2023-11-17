@@ -4,22 +4,22 @@ POST http://localhost:5050/armors/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "img": "",
-    "image2": "",
-    "image3": "",
-    "image4": "",
-    "image5": "",
-    "description": "",
-    "price": ,
-    "title": "",
-    "helmet": "",
-    "mask": "",
-    "armor": "",
-    "sleeves": ""
+    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/top-12-scaled.jpg",
+    "image2": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/kabuto-4-scaled.jpg",
+    "image3": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/naname-5-scaled.jpg",
+    "image4": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/yuko-1-scaled.jpg",
+    "image5": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/ushiro-1-scaled.jpg",
+    "description": "Period: middle of the Edo Period appraised by The Association for the Research and Preservation of Japanese Helmets and Armor",
+    "price": 78444,
+    "title": "Antique Brown Lacquered Mid Edo Period Samurai Armor",
+    "helmet": "Helmet bowl: brown lacquered Kabuto (helmet) The surface is coated with brown lacquer.",
+    "mask": "Menpo (face guard): brown lacquered iron half mask, This type of half mask was popular as it was easy to breathe compared to the full mask that covers his nose",
+    "armor": "Nimai Do was named after the fact that Nimai means two plates, and Do means torso in Japanese. Instead of using a large number of small lamellar plates called Kozane, this cuirass used large rectangular shaped iron plates riveted.",
+    "sleeves": "lacquered iron Kusazuri laced with navy blue thread, Kusazuri is a skirt of plates attached to the cuirass"
 }
 
 ####
-GET http://localhost:5050/armors HTTP/1.1
+GET http://localhost:5050/armors?page=1 HTTP/1.1
 
 ####
 GET http://localhost:5050/armors/bytitle?title=hon
@@ -30,7 +30,24 @@ GET http://localhost:5050/armors/6542fc41fd5a56d15beda042 HTTP/1.1
 
 ####
 
+PATCH http://localhost:5050/armors/update/6555898006c6bb0b383e5e49 HTTP/1.1
+Content-Type: application/json
 
+{
+    "price": "48009"
+}
+
+####
+####
+
+PATCH http://localhost:5050/armors/update/6555874906c6bb0b383e5e47 HTTP/1.1
+Content-Type: application/json
+
+{
+    "price": "45290"
+}
+
+####
 
 
 
@@ -40,17 +57,17 @@ POST http://localhost:5050/helmets/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
-    "image2": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
-    "image3": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
-    "image4": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
-    "image5": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2021/11/KEN05632-scaled.jpg",
-    "title": "seeesss",
-    "price": 364493,
-    "description": " Before the Kawari Kabuto’s production, the Suji Kabuto (筋兜) has appeared during the Nanbokuchou (南北朝, 1337-1392) period. At that time, the tactic was gradually changed from the piggyback fight style to battle with the Tachi (太刀) sword and the Naginata (薙刀, Japanese halberd) on the ground. Therefore, there was a rise in demand for the weight saving of the Kabuto. Also, in order to turn the attack by swords, a new type of structure was invented; it is the Suji Kabuto (筋兜). Its form slides swords’ attacks when weapons hit the Kabuto. It is said that the production of the Suji Kabuto prospered in the Muromachi (室町, 1336-1573) period.",
-    "height" : 26,
-    "weight": 2.7,
-    "subtitle": " Suji Kabuto consists of many small riveted iron plates to form its shape. This helmet has Sanjyuni (thirty two  in Japanese) iron plates. Suji means a stripe in Japanese, and you can see 32 stripes in this helmet. A high-class Samurai might have owned this helmet."
+    "img": "",
+    "image2": "",
+    "image3": "",
+    "image4": "",
+    "image5": "",
+    "title": "",
+    "price": ,
+    "description": "",
+    "height" : ,
+    "weight": ,
+    "subtitle": ""
 }
 
 ####
@@ -72,19 +89,19 @@ Content-Type: application/json
 
 {
     "category": "new",
-    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2020/04/mzt_10_01-scaled.jpg",
-    "image2": "https://katana-giapponese.it/cdn/shop/products/IMG_8875_20220603-145352_1100x.jpg?v=1669984555",
-    "image3": "https://katana-giapponese.it/cdn/shop/products/IMG_8876_20220603-145355_1100x.jpg?v=1669984555",
-    "image4": "https://katana-giapponese.it/cdn/shop/products/IMG_8879_20220603-145405_1100x.jpg?v=1669984555",
-    "image5": "https://katana-giapponese.it/cdn/shop/products/IMG_8881_20220603-145411_1100x.jpg?v=1669984555",
-    "width": 3.2,
-    "thickness": 0.75 ,
-    "age": "2021",
-    "location": "Tokyo",
-    "price": 3200,
-    "length": 52,
-    "description": "Legno di ebano laccato e corno di toro Kurigata, Pelle bianca stingray",
-    "title": "SAMUELE "
+    "img": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2023/08/toushin-saya-9-scaled.jpg",
+    "image2": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2023/08/toushin-saya1-9-scaled.jpg",
+    "image3": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2023/08/tuba-up-8-scaled.jpg",
+    "image4": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2023/08/toushinDSC00023-scaled.jpg",
+    "image5": "https://www.samuraimuseum.jp/shop/wp-content/uploads/2023/08/nakago1-11-scaled.jpg",
+    "width": 2.5,
+    "thickness":0.75 ,
+    "age": "The second year of the Tenmei era (1782)",
+    "location": "Satsuma province (Today’s Kagoshima prefecture)",
+    "price": 20999,
+    "length": 71,
+    "description": "This blade was signed by Satsuyo Shi Motohira (薩陽士元平) in the second year of the Tenmei ear (1782). Motohira is one of the most renowned swordsmiths in Satsuma domain (Today’s Kagoshima prefecture) during the late Edo period. Satsuyo Shi means Samurai who served Satsuma domain.",
+    "title": "Oku Motonao"
 }
 
 ####
@@ -105,6 +122,12 @@ DELETE http://localhost:5050/katanas/delete/654143353c98c3815ebe3b44
 
 ####
 
+PATCH http://localhost:5050/katanas/update/65566940961056036e025901     HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Tachibana Munehiro"
+}
 
 
 

@@ -1,0 +1,20 @@
+/** @format */
+
+.main-back {
+  background: url(https://s3.voyapon.com/wp-content/uploads/2020/12/21131855/samurai_kyoto-DON02817-1024x684.jpg)
+    no-repeat center;
+  background-size: cover;
+  margin: 0;
+  padding: 150px;
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.main-back h1 {
+  font-family: fantasy;
+  border: 2px solid;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.53);
+  color: white;
+}

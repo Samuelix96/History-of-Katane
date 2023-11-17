@@ -6,7 +6,7 @@
   height: 100vh;
   overflow: hidden;
 
-  background-image: url(https://img.freepik.com/free-vector/japanese-themed-hand-painted-mountain-landscape_1048-16707.jpg?w=740&t=st=1700078960~exp=1700079560~hmac=a9b3f656f58588280fb7879c5f29f2ce6f832d96551e197b87938782f62d1000);
+  background-image: url(https://www.japantimes.co.jp/uploads/imported_images/uploads/2020/02/p10-outside-adachi-a-20200226.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -136,6 +136,17 @@ input:focus {
 /* buttons hover Animation */
 .button_login:hover {
   animation: ani9 0.4s ease-in-out infinite alternate;
+}
+
+@media screen and (max-width: 400px) {
+  .form_login {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 442px) {
+  .form_login {
+    width: 300px;
+  }
 }
 
 @keyframes ani9 {
